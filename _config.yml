@@ -11,7 +11,7 @@ description: >-
 #######################################################################################
 # Execution settings
 execute:
-  execute_notebooks           : cache
+  execute_notebooks           : false
 
 #######################################################################################
 # HTML-specific settings
@@ -25,7 +25,7 @@ notebook_interface            : "notebook"
 #######################################################################################
 # Launch button settings
 repository:
-  url                         : https://github.com/executablebooks/quantecon-mini-example
+  url                         : https://github.com/andreasdh/programmering-i-kjemi
   path_to_book                : "mini_book"
 
 binder:

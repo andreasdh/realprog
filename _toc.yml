@@ -1,6 +1,10 @@
 ﻿- file: docs/intro
-  numbered: true
 
-- part: Get started
-  chapters:
-  - file: docs/index
+- part: Løsningsforslag
+  chapters:  
+  - file: docs/introduksjon
+  - file: docs/learn_more
+
+- part: Moro
+  chapters: 
+  - file: docs/python_by_example

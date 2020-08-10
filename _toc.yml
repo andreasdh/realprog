@@ -1,6 +1,6 @@
-﻿﻿- file: docs/index
+﻿- file: docs/intro
+  numbered: true
 
-- file: docs/learn_more
-
-- header: Løsningsforslag 
-- file: docs/introduksjon
+- part: Get started
+  chapters:
+  - file: docs/index

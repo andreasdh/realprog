@@ -1,10 +1,6 @@
-﻿﻿
-# - file: docs/index
- 
-- header: Løsningsforslag
+﻿﻿- file: docs/index
+
 - file: docs/learn_more
+
+- header: Løsningsforslag 
 - file: docs/introduksjon
-- header: Videoer
-- file: docs/datahåndtering
-- file: docs/getting_started
-- file: docs/python_by_example

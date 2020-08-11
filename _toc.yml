@@ -1,10 +1,10 @@
 ﻿- file: docs/intro
 
 - part: Løsningsforslag
-  chapters:  
+  chapters:
   - file: docs/introduksjon
-  - file: docs/learn_more
+  - file: docs/plotting_data
 
 - part: Moro
-  chapters: 
+  chapters:
   - file: docs/python_by_example

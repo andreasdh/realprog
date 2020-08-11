@@ -3,8 +3,9 @@
 Dette er nettsida til IN-KJM1900 der du vil finne ulike ressurser i emnet.
 
 ```{note}
-Ressursene på disse sidene er:
+På siden vil du finne følgende:
 - Videoer: gjennomgang av den mest sentrale teorien.
-- Løsning av oppgaver.
+- Løsning av oppgaver fra forelesning.
 - Datasett.
+- Oppgaver som du kan prøve underveis.
 ```

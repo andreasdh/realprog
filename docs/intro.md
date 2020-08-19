@@ -9,3 +9,5 @@ På siden vil du finne følgende:
 - Datasett.
 - Oppgaver som du kan prøve underveis.
 ```
+
+Fagstoffet tar utgangspunkt i et kompendium: [Kompendium IN-KJM1900](https://www.uio.no/studier/emner/matnat/ifi/IN-KJM1900/h19/kompendium/kompendium_kjm1900.pdf).

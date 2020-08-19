@@ -10,4 +10,4 @@ På siden vil du finne følgende:
 - Oppgaver som du kan prøve underveis.
 ```
 
-Fagstoffet tar utgangspunkt i et kompendium: [Kompendium IN-KJM1900](https://www.uio.no/studier/emner/matnat/ifi/IN-KJM1900/h19/kompendium/kompendium_kjm1900.pdf).
+Fagstoffet tar utgangspunkt i et kompendium: [Kompendium IN-KJM1900](https://www.uio.no/studier/emner/matnat/ifi/IN-KJM1900/h20/pensumliste/kompendium_in-kjm1900.pdf).

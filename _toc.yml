@@ -20,3 +20,7 @@
   - file: docs/tema6
   - file: docs/tema7
   - file: docs/repetisjon
+
+part: Datafiler
+  chapters:
+  - file: docs/Datafiler

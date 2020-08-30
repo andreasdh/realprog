@@ -21,6 +21,6 @@
   - file: docs/tema7
   - file: docs/repetisjon
 
-part: Datafiler
+- part: Datafiler
   chapters:
   - file: docs/datafiler

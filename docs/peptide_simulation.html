@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 4: Peptide simulation &#8212; Programmering i kjemi</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/qe-logo-large.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Programmering i kjemi</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Teori
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="molekylvisualisering.html">
+   Molekylvisualisering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plotting_data.html">
+   Plotting og behandling av eksperimentelle data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diskret_modellering.html">
+   Diskret modellering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likninger.html">
+   Likninger og nullpunkter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="derivasjon.html">
+   Numerisk derivasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="integrasjon.html">
+   Integrasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="differensiallikninger.html">
+   Kontinuerlig modellering
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Programmer fra forelesning
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tema1.html">
+   Tema 1: Molekylvisualisering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tema2.html">
+   Tema 2: Datahåndtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tema3.html">
+   Tema 3: Diskret modellering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tema4.html">
+   Tema 4: Likninger og nullpunkter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tema5.html">
+   Tema 5: Numerisk derivasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tema6.html">
+   Tema 6: Numerisk integrasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tema7.html">
+   Tema 7: Kontinuerlig modellering og simuleringer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="losning_proveeksamen_H2020.html">
+   Løsningsforslag for prøveeksamen høst 2020
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Datafiler
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="datafiler.html">
+   Datafiler
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docs/peptide_simulation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/andreasdh/programmering-i-kjemi/master?urlpath=tree/mini_book/docs/peptide_simulation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-properties">
+   1. System properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#energy-and-angles">
+   2. Energy and angles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equipartition-theorem">
+     2.1 Equipartition theorem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dihedral-angles">
+     2.2 Dihedral angles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#angles-for-implicit-solvent-run">
+   2.3 Angles for implicit solvent run
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-with-apa">
+   2.4 Comparison with APA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extra-hydrogen-bond-analysis">
+   2.5* Extra: Hydrogen bond analysis
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-4-peptide-simulation">
+<h1>Assignment 4: Peptide simulation<a class="headerlink" href="#assignment-4-peptide-simulation" title="Permalink to this headline">¶</a></h1>
+<p><em>Andreas Haraldsrud</em></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Here we will explore some properties of two tripeptides (AAA and APA) with MD simulations and visualization.</p>
+</div>
+<div class="section" id="system-properties">
+<h2>1. System properties<a class="headerlink" href="#system-properties" title="Permalink to this headline">¶</a></h2>
+<p>Let’s first visualize the tripeptide AAA.</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script type="text/x-thebe-config">
+{
+    requestKernel: true,
+    binderOptions: {
+        repo: "binder-examples/requirements",
+        ref: "master",
+    },
+    kernelOptions: {
+  kernelName: "python3",
+},
+}
+</script>
+<script src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+<button id="activateButton" style="width: 120px; height: 40px; font-size: 1.5em;">
+  Activate
+</button>
+<script>
+var bootstrapThebe = function() {
+    thebelab.bootstrap();
+}
+document.querySelector("#activateButton").addEventListener('click', bootstrapThebe)
+</script>
+<pre data-executable="true" data-language="python"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+
+<span class="n">peptide</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_file</span><span class="p">(</span><span class="s1">&#39;MDrun/tripeptid2.pdb&#39;</span><span class="p">)</span>
+<span class="n">peptide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a9c780c55ff444728805e2e3561af100", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</pre><p>We can see that the charge is neutral. This is because we added an acetyl group (<span class="math notranslate nohighlight">\(CH_3CO\)</span>) to one end and an N-methyl group (<span class="math notranslate nohighlight">\(NCH_3\)</span>) to not end up with “artificial” charges since this tripeptide most likely is a smaller fragment of a larger protein. Also, alanine does not have a charged side group. Each amino acid has a chiral center, so we have three chiral centras here. The three nitrogens and the three oxygens in the three amino acids each have (in principle) unpaireded electrons, but only oxygen can form hydrogen bonds as an H-bond acceptor. Nitrogen cannot act as an acceptor because its electrons are a part of the delocalized peptide bond.</p>
+<p>Also, the acetyl group has an oxygen and the N-methyl group has a nitrogen that can participate in hydrogen bonds as acceptors, because this nitrogen is not part of a peptide bond. In addition to this, H-bonds can form between the hydrogens (donors) on the three nitrogen atoms in the peptide, and a lone pair of an electronegative atom of another atom. So in principle a total of 9 H-bonds can be formed, where 7 of these are from the non-capped peptide.</p>
+<p>We can also visualize the cavity around the peptide with the MDAnalysis tool. From now on we visualize the peptide without the capping groups acetyl and N-methyl.</p>
+<pre data-executable="true" data-language="python"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis</span> <span class="kn">import</span> <span class="n">Universe</span>
+
+<span class="n">mda_traj500</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topol.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentred500ps.xtc&#39;</span><span class="p">)</span>
+<span class="n">mda_view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">mda_traj500</span><span class="p">)</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">clear_representations</span><span class="p">()</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="n">repr_type</span><span class="o">=</span><span class="s1">&#39;ball+stick&#39;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="n">repr_type</span><span class="o">=</span><span class="s1">&#39;spacefill&#39;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;water&#39;</span><span class="p">)</span>
+<span class="n">mda_view</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b8d97df7ed8f4e99b48adcc6442b9969", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</pre>
+We can see that the cavity extends below the protein, so that it's more cylindrical than spherical. A screenshot from VMD also confirms this:
+<p><img alt="cavity.png" src="docs/attachment:cavity.png" /></p>
+<p>To verify that we have the right protein and to explore some other properties of the simulation, we can use some basic tools in MDAnalysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mda_traj500</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topol.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentred500ps.xtc&#39;</span><span class="p">)</span>
+<span class="n">protein</span> <span class="o">=</span> <span class="n">mda_traj500</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="n">uncapped_protein</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">protein</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">36</span><span class="p">])</span>
+<span class="n">solvshell</span> <span class="o">=</span> <span class="n">mda_traj500</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resname SOL and around 5.0 protein&quot;</span><span class="p">)</span> <span class="c1"># Number of water molecules max 5.0 Å of the protein</span>
+<span class="n">residues</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">residues</span> <span class="c1"># Find all residues in protein</span>
+<span class="n">protein_and_solvationshell</span> <span class="o">=</span> <span class="n">protein</span> <span class="o">+</span> <span class="n">solvshell</span>
+
+<span class="n">atom_names</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">names</span> <span class="c1"># Display names of all atoms in the protein</span>
+<span class="n">charges</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">charges</span> <span class="c1"># Find all charges of protein atoms</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">positions</span> <span class="c1"># Find positions (.velocities for velocities) of all protein atoms</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average water molecules in 5 Å solvation shell: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">solvshell</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Protein residues: </span><span class="si">{</span><span class="n">residues</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average water molecules in 5 Å solvation shell: 212
+Protein residues: &lt;ResidueGroup [&lt;Residue ACE, 0&gt;, &lt;Residue ALA, 1&gt;, &lt;Residue ALA, 2&gt;, &lt;Residue ALA, 3&gt;, &lt;Residue NME, 4&gt;]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="energy-and-angles">
+<h2>2. Energy and angles<a class="headerlink" href="#energy-and-angles" title="Permalink to this headline">¶</a></h2>
+<p>We are running an MD simulation of the tripeptide in water with Gromacs, using the AMBER forcefield and the tip3p water model. The tripeptide is capped with acetyl and N-methyl to prevent ionic behavior of the zwitterion, as the tripeptide is meant to represent a small fragment of a larger protein.</p>
+<div class="section" id="equipartition-theorem">
+<h3>2.1 Equipartition theorem<a class="headerlink" href="#equipartition-theorem" title="Permalink to this headline">¶</a></h3>
+<p>The protein is geometry optimized and the energy is analyzed. According to the equipartition theorem, every degree of freedom should give <span class="math notranslate nohighlight">\(\frac{1}{2}k_bT\)</span> of energy. Since our model uses 1 degree of vibrational freedom for the bonds, every of the 19 bonds should have this energy. This corresponds to roughly <span class="math notranslate nohighlight">\(0.5\cdot19\cdot k_bT \approx 24\)</span> kJ/mol of energy. We can use the energy files from the simulation to plot and analyze the bond energies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">data5ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;Datafiles/energy5ps.xvg&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">time5</span> <span class="o">=</span> <span class="n">data5ps</span> <span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bonds5</span> <span class="o">=</span> <span class="n">data5ps</span> <span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">avgbonds5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bonds5</span><span class="p">)</span>
+
+<span class="n">data50ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;Datafiles/energy50ps.xvg&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">time50</span> <span class="o">=</span> <span class="n">data50ps</span> <span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bonds50</span> <span class="o">=</span> <span class="n">data50ps</span> <span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">avgbonds50</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bonds50</span><span class="p">)</span>
+
+<span class="n">data500ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;Datafiles/energy500ps.xvg&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">time500</span> <span class="o">=</span> <span class="n">data500ps</span> <span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bonds500</span> <span class="o">=</span> <span class="n">data500ps</span> <span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">avgbonds500</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bonds500</span><span class="p">)</span>
+
+<span class="n">kb</span> <span class="o">=</span> <span class="mf">1.38064852E-23</span>    <span class="c1"># Boltzmann constant</span>
+<span class="n">bonds</span> <span class="o">=</span> <span class="mi">19</span>             <span class="c1"># Number of bonds</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">300</span>                <span class="c1"># Temperature in K</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mf">6.02214086E23</span>      <span class="c1"># Avogadro&#39;s constant</span>
+<span class="n">expected_energy</span> <span class="o">=</span> <span class="n">bonds</span><span class="o">*</span><span class="mf">0.5</span><span class="o">*</span><span class="n">kb</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="mi">1000</span> <span class="c1"># kJ/mol</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time5</span><span class="p">,</span><span class="n">bonds5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average bond energies for 5 ps MD simulation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Energy (kJ/mol)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">avgbonds5</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Computed energy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">expected_energy</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;seagreen&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Expected energy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time50</span><span class="p">,</span><span class="n">bonds50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average bond energies for 50 ps MD simulation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Energy (kJ/mol)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">avgbonds50</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Computed energy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">expected_energy</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;seagreen&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Expected energy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time500</span><span class="p">,</span><span class="n">bonds500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average bond energies for 500 ps MD simulation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Energy (kJ/mol)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">avgbonds500</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Computed energy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">expected_energy</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;seagreen&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Expected energy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We expected </span><span class="si">{</span><span class="n">expected_energy</span><span class="si">}</span><span class="s2"> kJ/mol according to the equipartition theorem.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The deviation from this was:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;For t = 5 ps: </span><span class="si">{</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">expected_energy</span> <span class="o">-</span> <span class="n">avgbonds5</span><span class="p">)</span><span class="o">/</span><span class="n">expected_energy</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;For t = 50 ps: </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">expected_energy</span> <span class="o">-</span> <span class="n">avgbonds50</span><span class="p">)</span><span class="o">/</span><span class="n">expected_energy</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;For t = 500 ps: </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">expected_energy</span> <span class="o">-</span> <span class="n">avgbonds500</span><span class="p">)</span><span class="o">/</span><span class="n">expected_energy</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/peptide_simulation_10_0.png" src="../_images/peptide_simulation_10_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We expected 23.696210616933 kJ/mol according to the equipartition theorem.
+The deviation from this was:
+For t = 5 ps: 36.22 %
+For t = 50 ps: 5.98 %
+For t = 500 ps: 16.87 %
+</pre></div>
+</div>
+</div>
+</div>
+<p>What we see is that we actually get best fit to the theoretical energies with the 50 ps run. This might be random due to a relatively short run, and running several simulations for 50 ps should in principle make this clearer. What we see from comparing the run for 5 ps and 500 ps is that the deviation from the theoretical value tends to decrease as the simulation time increases. This illustrates the equipartition principle.</p>
+</div>
+<div class="section" id="dihedral-angles">
+<h3>2.2 Dihedral angles<a class="headerlink" href="#dihedral-angles" title="Permalink to this headline">¶</a></h3>
+<p>Let’s now turn to the dihedral angles of the peptide. We can analyse the angles during the whole trajectory by using MDAnalysis’ Dihedral and Ramachandran modules. The Ramachandran plot shows us all combinations of dihedrals in one plot. First we can compute a Ramachandran plot for the 500 ps run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<span class="kn">from</span> <span class="nn">MDAnalysis.analysis.dihedrals</span> <span class="kn">import</span> <span class="n">Dihedral</span><span class="p">,</span> <span class="n">Ramachandran</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">mda_traj500</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topol.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentred500ps.xtc&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">mda_traj500</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran plot for 500 ps run&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22ac5aece50&gt;
+</pre></div>
+</div>
+<img alt="../_images/peptide_simulation_12_1.png" src="../_images/peptide_simulation_12_1.png" />
+</div>
+</div>
+<p>We plot the states of the backbone dihedral regions <span class="math notranslate nohighlight">\(\psi\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> in a Ramachandran plot. The allowed regions are marked in dark blue, and the marginally allowed regions marked in light blue. The data points are represented with black dots. We can see that, for the most part, the <span class="math notranslate nohighlight">\(\phi\)</span> angles are found between –180<span class="math notranslate nohighlight">\(^\circ\)</span> and –60<span class="math notranslate nohighlight">\(^\circ\)</span>, and that the <span class="math notranslate nohighlight">\(\psi\)</span> angles occupy either 0<span class="math notranslate nohighlight">\(^\circ\)</span> or <span class="math notranslate nohighlight">\(\pm\)</span> 180<span class="math notranslate nohighlight">\(^\circ\)</span>. There are few states in the right region of the plot, and we see that even the allowed region where <span class="math notranslate nohighlight">\(\phi \approx 60^\circ\)</span> and <span class="math notranslate nohighlight">\(\psi \approx 0^\circ\)</span>. We don’t plot the <span class="math notranslate nohighlight">\(\omega\)</span> bond, since it is mostly 180<span class="math notranslate nohighlight">\(^\circ\)</span> because the partial double bond character of the peptide bond keeps the peptide planar.</p>
+<p>Let’s repeat the analysis for the 50 and 5 ps trajectories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mda_traj50</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topol.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentred50ps.xtc&#39;</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">mda_traj50</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran plot for 50 ps run&#39;</span><span class="p">)</span>
+<span class="n">r2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22ac6f2c8b0&gt;
+</pre></div>
+</div>
+<img alt="../_images/peptide_simulation_14_1.png" src="../_images/peptide_simulation_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mda_traj5</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topol.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentred5ps.xtc&#39;</span><span class="p">)</span>
+<span class="n">r3</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">mda_traj5</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran plot for 5 ps run&#39;</span><span class="p">)</span>
+<span class="n">r3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22ac6f2e670&gt;
+</pre></div>
+</div>
+<img alt="../_images/peptide_simulation_15_1.png" src="../_images/peptide_simulation_15_1.png" />
+</div>
+</div>
+<p>We can see that in both the 5 and 50 ps run, the <span class="math notranslate nohighlight">\(\psi\)</span> angle varies as 0 <span class="math notranslate nohighlight">\(\pm\)</span> 60 and the <span class="math notranslate nohighlight">\(\phi\)</span> angle varies as –90 <span class="math notranslate nohighlight">\(\pm\)</span> 30.</p>
+<p>We can illustrate ergodicity with these plots. The ergodic theorem states that the particles in a dynamic, statistical system will eventually visit all parts of the space that the system is allowed to move in. In this instance it will mean that the allowed regions in the Ramachandran plot should eventually be visited. We see that the number of configurations increases as the time increases, which illustrates the ergodic theorem.</p>
+</div>
+</div>
+<div class="section" id="angles-for-implicit-solvent-run">
+<h2>2.3 Angles for implicit solvent run<a class="headerlink" href="#angles-for-implicit-solvent-run" title="Permalink to this headline">¶</a></h2>
+<p>To illustrate this further, we can run a 20 ns (20 000 ps) simulation without solvent. We did this by removing the pressure coupling. This means that the box size is constant, so it won’t shrink on the protein and cause numerical problems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mda_traj20ns</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topol_without_water.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentred20ns.xtc&#39;</span><span class="p">)</span>
+<span class="n">r4</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">mda_traj20ns</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran plot for 20 ns run&#39;</span><span class="p">)</span>
+<span class="n">r4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22ac3709640&gt;
+</pre></div>
+</div>
+<img alt="../_images/peptide_simulation_17_1.png" src="../_images/peptide_simulation_17_1.png" />
+</div>
+</div>
+<p>Here we see that additional states are occupied, even less likely states. This might be due to the fact that the peptide can rotate more freely because there are no water molecule to constrain it. We can observe this rapid changing of angles by visualizing the trajectory:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mda_view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">mda_traj20ns</span><span class="p">)</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">clear_representations</span><span class="p">()</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="n">repr_type</span><span class="o">=</span><span class="s1">&#39;ball+stick&#39;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
+<span class="n">mda_view</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "1fa2a3e013224180b4b2e3ccb983cf05", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>A histogram of both <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> will also be useful for understanding the distribution of each angle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein500</span> <span class="o">=</span> <span class="n">mda_traj500</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="n">rama</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">protein500</span><span class="o">.</span><span class="n">residues</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="n">rama</span><span class="o">.</span><span class="n">angles</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">rama</span><span class="o">.</span><span class="n">angles</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">hist_dist</span><span class="p">,</span><span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">probabilities_phi</span> <span class="o">=</span> <span class="n">hist_dist</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">probabilities_phi</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="p">[</span><span class="n">bin_edges</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span> <span class="n">bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;edge&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of $\phi$ for 500 ps simulation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\phi$ angle (degrees)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">hist_dist2</span><span class="p">,</span><span class="n">bin_edges2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
+<span class="n">probabilities_psi</span> <span class="o">=</span> <span class="n">hist_dist2</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bin_edges2</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">probabilities_psi</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="p">[</span><span class="n">bin_edges2</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span> <span class="n">bin_edges2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_edges2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;edge&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of $\psi$ for 500 ps simulation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\psi$ angle (degrees)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/peptide_simulation_21_0.png" src="../_images/peptide_simulation_21_0.png" />
+<img alt="../_images/peptide_simulation_21_1.png" src="../_images/peptide_simulation_21_1.png" />
+</div>
+</div>
+<p>We can also use the PMF (potential mean force <span class="math notranslate nohighlight">\(\mathcal{F}(\phi, \psi)\)</span>) rather than a probability distrubution for an observable (here: dihedrals). The probability distribution and the PMF are related by this expression:</p>
+<div class="math notranslate nohighlight">
+\[P(\phi, \psi) = \frac{e^{-\beta\mathcal{F}(\phi, \psi)}}{Z(\beta)}\]</div>
+<p>If we take the logarithm on each side, we have:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}(\phi, \psi) = -kT \ln(P(\phi, \psi)Z(\beta)) = -kT \ln(P(\phi, \psi)) - kT\ln(Z(\beta))\]</div>
+<p>Since <span class="math notranslate nohighlight">\(Z(\beta)\)</span> is a constant at constant temperature, we can disregard this term (the zero of potential energy is arbitrary). We then have:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}(\phi, \psi) = -kT \ln(P(\phi, \psi))\]</div>
+<p>Since we can disregard the constant term, we just end up scaling all the probabilities equally. This results in the same Ramachandran plot as before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">mda_traj500</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran plot for 500 ps run&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22ac37f7850&gt;
+</pre></div>
+</div>
+<img alt="../_images/peptide_simulation_23_1.png" src="../_images/peptide_simulation_23_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="comparison-with-apa">
+<h2>2.4 Comparison with APA<a class="headerlink" href="#comparison-with-apa" title="Permalink to this headline">¶</a></h2>
+<p>Let’s plot a Ramachandran plot for APA (alanine, proline, alanine) also. First we can visualize the peptide and the trajectories, and then we’ll compute the angles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+
+<span class="n">peptide2</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_file</span><span class="p">(</span><span class="s1">&#39;MDrun/APAtripeptide.pdb&#39;</span><span class="p">)</span>
+<span class="n">peptide2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "4121b191fa344c9b9268c86d48f0a833", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mda_trajAPA</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topolAPA.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentredAPA.xtc&#39;</span><span class="p">)</span>
+<span class="n">mda_view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">mda_trajAPA</span><span class="p">)</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">clear_representations</span><span class="p">()</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="n">repr_type</span><span class="o">=</span><span class="s1">&#39;ball+stick&#39;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
+<span class="n">mda_view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="n">repr_type</span><span class="o">=</span><span class="s1">&#39;spacefill&#39;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;water&#39;</span><span class="p">)</span>
+<span class="n">mda_view</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "ff7474abae3145ccbf129c813568194f", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r5</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">mda_trajAPA</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran plot for APA 500 ps run&#39;</span><span class="p">)</span>
+<span class="n">r5</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22ac5e68e50&gt;
+</pre></div>
+</div>
+<img alt="../_images/peptide_simulation_27_1.png" src="../_images/peptide_simulation_27_1.png" />
+</div>
+</div>
+<p>We can see that the distribution is quite similar as the AAA peptide. We should perhaps see less flexibility due to the ring in proline, so we’ll run another 20 ns simulation and check the distribution again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mda_trajAPA20ns</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;MDrun/topolAPA20ns.tpr&#39;</span><span class="p">,</span> <span class="s1">&#39;MDrun/trajcentredAPA20ns.xtc&#39;</span><span class="p">)</span>
+<span class="n">r6</span> <span class="o">=</span> <span class="n">Ramachandran</span><span class="p">(</span><span class="n">mda_trajAPA20ns</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ramachandran plot for APA 20 ns run&#39;</span><span class="p">)</span>
+<span class="n">r6</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22ac8466760&gt;
+</pre></div>
+</div>
+<img alt="../_images/peptide_simulation_29_1.png" src="../_images/peptide_simulation_29_1.png" />
+</div>
+</div>
+<p>We did not get particularly restricted angles as expected, but we got more angles centered around <span class="math notranslate nohighlight">\(\phi \approx 90 \pm 30\)</span> and <span class="math notranslate nohighlight">\(\psi \approx 0 \pm 60\)</span>. Also the area for <span class="math notranslate nohighlight">\(\psi \approx -90 \pm 30\)</span> seems to be more restricted than for the AAA-peptide.</p>
+</div>
+<div class="section" id="extra-hydrogen-bond-analysis">
+<h2>2.5* Extra: Hydrogen bond analysis<a class="headerlink" href="#extra-hydrogen-bond-analysis" title="Permalink to this headline">¶</a></h2>
+<p>We can also try to analyze the hydrogen bonds to understand for example the role H-bonds play in stabilizing the molecule.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis.hydrogenbonds.hbond_analysis</span> <span class="kn">import</span> <span class="n">HydrogenBondAnalysis</span> <span class="k">as</span> <span class="n">HBA</span>
+<span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">hbonds</span>
+<span class="kn">import</span> <span class="nn">MDAnalysis</span>
+<span class="kn">import</span> <span class="nn">MDAnalysis.analysis.hydrogenbonds.hbond_analysis</span>
+
+<span class="n">hbonds</span> <span class="o">=</span> <span class="n">HBA</span><span class="p">(</span><span class="n">universe</span> <span class="o">=</span> <span class="n">mda_traj500</span><span class="p">)</span>
+<span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_hydrogens</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_acceptors</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x22ac770bdf0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">number_of_hbonds_per_timestep</span> <span class="o">=</span> <span class="n">HBA</span><span class="o">.</span><span class="n">count_by_time</span><span class="p">(</span><span class="n">hbonds</span><span class="p">)</span>
+<span class="n">bonds_ace</span> <span class="o">=</span> <span class="n">HBA</span><span class="o">.</span><span class="n">count_by_type</span><span class="p">(</span><span class="n">hbonds</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">bonds_ala</span> <span class="o">=</span> <span class="n">HBA</span><span class="o">.</span><span class="n">count_by_type</span><span class="p">(</span><span class="n">hbonds</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">timestep</span> <span class="o">=</span> <span class="mf">0.002E-12</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average number of H-bonds per timestep: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">number_of_hbonds_per_timestep</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Maximum number of H-bonds per timestep: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">number_of_hbonds_per_timestep</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Total number of H-bonds formed with O on alanines as donor: </span><span class="si">{</span><span class="n">bonds_ala</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average number of H-bonds per timestep: 3.9221556886227544
+Maximum number of H-bonds per timestep: 8
+Total number of H-bonds formed with O on alanines as donor: 1511
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the average is about 4 bonds formed per timestep, and that we get a maximum of 8 bonds, which is not far from the 9 we expected. To get 9 we probably need to freeze the molecule in a perfect lattice with the water or simulate for a very long time.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Andreas Haraldsrud<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

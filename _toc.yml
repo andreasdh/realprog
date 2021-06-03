@@ -19,10 +19,8 @@
 
 - part: Tema 4 - Modellering
   chapters:
-  - file: docs/tema4_modellering/modellering
   - file: docs/tema4_modellering/differensiallikninger
   - file: docs/tema4_modellering/diskret_modellering
-  - file: docs/tema4_modellering/newtons_avkjolingslov_oppgave
 
 - part: Tema 5 - Teknologi
   chapters:

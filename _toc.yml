@@ -2,6 +2,9 @@
 
 - part: Tema 1 - Programmering i fagfornyelsen
   chapters:
+  - file: docs/tema1_programmering_i_fagfornyelsen/tall_variabler
+  - file: docs/tema1_programmering_i_fagfornyelsen/kontrollstrukturer
+  - file: docs/tema1_programmering_i_fagfornyelsen/datasamlinger_plotting
   - file: docs/tema1_programmering_i_fagfornyelsen/grunnleggende_programmering_oppgaver
 
 - part: Tema 2 - Datahåndtering

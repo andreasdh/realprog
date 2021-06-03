@@ -1,12 +1,12 @@
 #######################################################################################
 # Book settings
-title : Programmering i kjemi
+title : Realfaglig programmering
 author: Andreas Haraldsrud
 logo: 'qe-logo-large.png'
 
 # Information about where the book exists on the web
 description: >-
-  Nettsider for IN-KJM1900
+  Ressurssider for realfaglig programmering (NAT3000 og ProFag).
 
 #######################################################################################
 # Execution settings
@@ -25,7 +25,7 @@ notebook_interface            : "notebook"
 #######################################################################################
 # Launch button settings
 repository:
-  url                         : https://github.com/andreasdh/programmering-i-kjemi
+  url                         : https://andreasdh.github.io/NAT3000/
   path_to_book                : "mini_book"
 
 binder:

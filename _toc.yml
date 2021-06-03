@@ -1,25 +1,36 @@
 ﻿- file: docs/intro
 
-- part: Teori
+- part: Tema 1 - Programmering i fagfornyelsen
   chapters:
-  - file: docs/molekylvisualisering
-  - file: docs/plotting_data
-  - file: docs/diskret_modellering
-  - file: docs/likninger
-  - file: docs/derivasjon
-  - file: docs/integrasjon
-  - file: docs/differensiallikninger
+  - file: docs/tema1_programmering_i_fagfornyelsen/grunnleggende_programmering_oppgaver
 
-- part: Programmer fra forelesning
+- part: Tema 2 - Datahåndtering
   chapters:
-  - file: docs/tema1
-  - file: docs/tema2
-  - file: docs/tema3
-  - file: docs/tema4
-  - file: docs/tema5
-  - file: docs/tema6
-  - file: docs/tema7
-  - file: docs/losning_proveeksamen_H2020
+  - file: docs/tema2_datahandtering/datahandtering
+  - file: docs/tema2_datahandtering/maskinlæring_iris
+  - file: docs/tema2_datahandtering/maskinlaring_titanic_oppgave
+
+- part: Tema 3 - Numeriske metoder
+  chapters:
+  - file: docs/tema3_numeriske_metoder/likninger
+  - file: docs/tema3_numeriske_metoder/derivasjon
+  - file: docs/tema3_numeriske_metoder/integrasjon
+  - file: docs/tema3_numeriske_metoder/likninger_oppgave1
+
+- part: Tema 4 - Modellering
+  chapters:
+  - file: docs/tema4_modellering/modellering
+  - file: docs/tema4_modellering/differensiallikninger
+  - file: docs/tema4_modellering/diskret_modellering
+  - file: docs/tema4_modellering/newtons_avkjolingslov_oppgave
+
+- part: Tema 5 - Teknologi
+  chapters:
+  - file: docs/tema5_teknologi/teknologi
+
+- part: Tema 6 - Visualisering
+  chapters:
+  - file: docs/tema6_visualisering/tilfeldige_tall_grafikk
 
 - part: Datafiler
   chapters:

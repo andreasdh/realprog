@@ -1,13 +1,10 @@
-# Programmering i kjemi
-
-Dette er nettsida til IN-KJM1900 der du vil finne ulike ressurser i emnet.
+# Realfaglig programmering i skolen
+Dette er en ressursside for realfaglig programmering i skolen.
 
 ```{admonition} Innhold
 På siden vil du finne følgende:
-- Videoer: gjennomgang av den mest sentrale teorien.
-- Løsning av oppgaver fra forelesning.
+- Videoer: gjennomgang av programmeringstekniske ferdigheter.
+- Oppgaver.
 - Datasett.
-- Oppgaver som du kan prøve underveis.
+- Programmer og tips til undervisning.
 ```
-
-Fagstoffet tar utgangspunkt i et kompendium: [Kompendium IN-KJM1900](https://www.uio.no/studier/emner/matnat/ifi/IN-KJM1900/h20/pensumliste/kompendium_kjm1900%282%29.pdf).

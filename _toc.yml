@@ -21,6 +21,8 @@
   - file: docs/tema3_numeriske_metoder/derivasjon
   - file: docs/tema3_numeriske_metoder/integrasjon
   - file: docs/tema3_numeriske_metoder/likninger_oppgave1
+  - file: docs/tema3_numeriske_metoder/symbolsk_cas
+  - file: docs/tema3_numeriske_metoder/numeriske_biblioteker
 
 - part: Tema 4 - Modellering
   chapters:

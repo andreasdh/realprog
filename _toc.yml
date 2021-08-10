@@ -37,7 +37,7 @@
   chapters:
   - file: docs/tema6_visualisering/tilfeldige_tall_grafikk
 
-- part: Datafiler
+- part: Quizer
   chapters:
   - file: docs/test_deg_selv/quiz1
   - file: docs/test_deg_selv/quiz2

@@ -39,4 +39,13 @@
 
 - part: Datafiler
   chapters:
+  - file: docs/test_deg_selv/quiz1
+  - file: docs/test_deg_selv/quiz2
+  - file: docs/test_deg_selv/quiz3
+  - file: docs/test_deg_selv/quiz4
+  - file: docs/test_deg_selv/quiz5
+  - file: docs/test_deg_selv/quiz6
+
+- part: Datafiler
+  chapters:
   - file: docs/datafiler

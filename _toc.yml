@@ -9,10 +9,10 @@ parts:
   - file: docs/tema1_programmering_i_fagfornyelsen/grunnleggende_programmering_oppgaver
   - file: docs/tema1_programmering_i_fagfornyelsen/undervisningsmetoder
   - file: docs/tema1_programmering_i_fagfornyelsen/programmeringsverktoy
-- caption: Tema 2 - Datahåndtering
+- caption: Tema 2 - DatahÃ¥ndtering
   chapters:
   - file: docs/tema2_datahandtering/datahandtering
-  - file: docs/tema2_datahandtering/maskinlæring_iris
+  - file: docs/tema2_datahandtering/maskinlÃ¦ring_iris
   - file: docs/tema2_datahandtering/maskinlaring_titanic_oppgave
 - caption: Tema 3 - Numeriske metoder
   chapters:

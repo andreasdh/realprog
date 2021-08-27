@@ -1,8 +1,8 @@
 name: CI
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
@@ -15,26 +15,26 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-      
+
       - name: install
         run: |
           python --version
           python -m pip install setuptools
           python -m pip install -r requirements.txt
-          python -m pip install attrs==19.1.0
-            
-      - name: build 
+          python -m pip install attrs
+
+      - name: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: | 
-          
+        run: |
+
           cd $GITHUB_WORKSPACE
-          git init 
+          git init
           git config user.name "Github Actions"
           git config user.email "github-actions-bot@users.noreply.github.com"
           REPOSITORY_PATH="https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          
-          git checkout master 
+
+          git checkout master
           jupyter-book build .
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

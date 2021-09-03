@@ -8,6 +8,7 @@ parts:
   - file: docs/tema1_programmering_i_fagfornyelsen/datasamlinger_plotting
   - file: docs/tema1_programmering_i_fagfornyelsen/grunnleggende_programmering_oppgaver
   - file: docs/tema1_programmering_i_fagfornyelsen/undervisningsmetoder
+  - file: docs/tema1_programmering_i_fagfornyelsen/algoritmer
   - file: docs/tema1_programmering_i_fagfornyelsen/programmeringsverktoy
 - caption: Tema 2 - Datahåndtering
   chapters:

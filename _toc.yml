@@ -53,6 +53,9 @@ parts:
 - caption: Tema 7 - Visualisering
   chapters:
   - file: docs/tema7_visualisering/tilfeldige_tall_grafikk
+- caption: Tema 7 - Fagmoduler
+  chapters:
+  - file: docs/fagmoduler/fysikk
 - caption: Datafiler
   chapters:
   - file: docs/datafiler

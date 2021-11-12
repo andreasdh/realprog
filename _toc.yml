@@ -56,6 +56,8 @@ parts:
 - caption: Fagmoduler
   chapters:
   - file: docs/fagmoduler/fysikk
+  - file: docs/fagmoduler/kjemi
+  - file: docs/fagmoduler/biologi
 - caption: Datafiler
   chapters:
   - file: docs/datafiler

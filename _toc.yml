@@ -38,9 +38,9 @@ parts:
 - caption: Tema 4 - Numeriske metoder
   chapters:
   - file: docs/tema4_numeriske_metoder/likninger
-  - file: docs/tema4_grafikk_numeriske_metoder/derivasjon
-  - file: docs/tema4_numeriske_metoder/integrasjon
   - file: docs/tema4_numeriske_metoder/likninger_oppgave1
+  - file: docs/tema4_numeriske_metoder/derivasjon
+  - file: docs/tema4_numeriske_metoder/integrasjon
   - file: docs/tema4_numeriske_metoder/symbolsk_cas
   - file: docs/tema4_numeriske_metoder/numeriske_biblioteker
 - caption: Tema 5 - Modellering

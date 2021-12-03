@@ -1,4 +1,4 @@
-tid_min,antall_bakterier
+tid_h,antall_bakterier
 0,121
 1,253
 2,220

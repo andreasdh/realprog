@@ -58,6 +58,7 @@ parts:
   - file: docs/fagmoduler/fysikk
   - file: docs/fagmoduler/kjemi
   - file: docs/fagmoduler/biologi
+  - file: docs/fagmoduler/sannsynlighetsbegrepet
 - caption: Datafiler
   chapters:
   - file: docs/datafiler

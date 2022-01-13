@@ -45,13 +45,11 @@ parts:
   - file: docs/tema4_numeriske_metoder/numeriske_biblioteker
 - caption: Tema 5 - Modellering
   chapters:
-  - file: docs/tema5_modellering/differensiallikninger
   - file: docs/tema5_modellering/diskret_modellering
-- caption: Tema 6 - Teknologi
+  - file: docs/tema5_modellering/differensiallikninger
+- caption: Tema 6 - Teknologi og grafikk
   chapters:
   - file: docs/tema6_teknologi/teknologi
-- caption: Tema 7 - Visualisering
-  chapters:
   - file: docs/tema7_visualisering/tilfeldige_tall_grafikk
 - caption: Fagmoduler
   chapters:

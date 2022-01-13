@@ -61,6 +61,7 @@ parts:
   - file: docs/fagmoduler/sannsynlighetsbegrepet
   - file: docs/fagmoduler/matematikk1T
   - file: docs/fagmoduler/matematikk1P
+  - file: docs/fagmoduler/nedarving
 - caption: Datafiler
   chapters:
   - file: docs/datafiler

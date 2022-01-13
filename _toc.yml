@@ -62,6 +62,7 @@ parts:
   - file: docs/fagmoduler/matematikk1T
   - file: docs/fagmoduler/matematikk1P
   - file: docs/fagmoduler/nedarving
+  - file: docs/fagmoduler/numerisk_derivasjon_RS
 - caption: Datafiler
   chapters:
   - file: docs/datafiler

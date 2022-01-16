@@ -49,8 +49,8 @@ parts:
   - file: docs/tema5_modellering/differensiallikninger
 - caption: Tema 6 - Teknologi og grafikk
   chapters:
-  - file: docs/tema6_teknologi/teknologi
-  - file: docs/tema7_visualisering/tilfeldige_tall_grafikk
+  - file: docs/tema6_teknologi_visualisering/teknologi
+  - file: docs/tema6_teknologi_visualisering/tilfeldige_tall_grafikk
 - caption: Fagmoduler
   chapters:
   - file: docs/fagmoduler/fysikk

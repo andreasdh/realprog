@@ -26,6 +26,7 @@ notebook_interface            : "notebook"
 # Launch button settings
 repository:
   url                         : https://realprog.no
+  cname			      : realprog.no
   path_to_book                : "mini_book"
 
 binder:

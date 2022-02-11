@@ -1,5 +1,5 @@
-jupyter-book==0.12.1
-myst-nb==0.13.1
+jupyter-book
+myst-nb
 matplotlib
 numpy 
 py3Dmol

@@ -55,14 +55,29 @@ parts:
   - file: docs/tema6_teknologi_visualisering/turtlegrafikk
 - caption: Fagmoduler
   chapters:
-  - file: docs/fagmoduler/fysikk
-  - file: docs/fagmoduler/kjemi
-  - file: docs/fagmoduler/biologi
-  - file: docs/fagmoduler/sannsynlighetsbegrepet
-  - file: docs/fagmoduler/matematikk1T
-  - file: docs/fagmoduler/matematikk1P
-  - file: docs/fagmoduler/nedarving
-  - file: docs/fagmoduler/numerisk_derivasjon_R
+  - file: docs/fagmoduler/matematikk_vgs
+    sections:
+    - file: docs/fagmoduler/matematikk1T_andregrads
+    - file: docs/fagmoduler/matematikk1T_likninger
+    - file: docs/fagmoduler/matematikk1P.ipynb
+    - file: docs/fagmoduler/stokastiske_simuleringerS1
+    - file: docs/fagmoduler/numerisk_derivasjon_R
+    - file: docs/tema4_numeriske_metoder/integrasjon
+  - file: docs/fagmoduler/naturvitenskap_vgs
+    sections:
+    - file: docs/fagmoduler/nedarving
+    - file: docs/fagmoduler/datahandtering
+    - file: docs/fagmoduler/fysikk_kinematikk
+    - file: docs/fagmoduler/biologi_populasjonsdynamikk
+    - file: docs/fagmoduler/kjemi_periodiske_egenskaper
+    - file: docs/fagmoduler/kjemiske_beregninger
+  - file: docs/fagmoduler/ungdomsskolen
+    sections:
+    - file: docs/fagmoduler/sannsylighet_u.ipynb
 - caption: Datafiler
   chapters:
   - file: docs/datafiler
+
+  - file: docs/tema1_grunnleggende_programmering/if-tester
+    sections:
+    - file: docs/tema1_grunnleggende_programmering/quiz3

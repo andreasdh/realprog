@@ -76,7 +76,3 @@ parts:
 - caption: Datafiler
   chapters:
   - file: docs/datafiler
-
-  - file: docs/tema1_grunnleggende_programmering/if-tester
-    sections:
-    - file: docs/tema1_grunnleggende_programmering/quiz3

@@ -72,7 +72,7 @@ parts:
     - file: docs/fagmoduler/kjemiske_beregninger
   - file: docs/fagmoduler/ungdomsskolen
     sections:
-    - file: docs/fagmoduler/sannsylighet_u.ipynb
+    - file: docs/fagmoduler/sannsynlighet_u.ipynb
 - caption: Datafiler
   chapters:
   - file: docs/datafiler

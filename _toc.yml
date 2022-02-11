@@ -59,7 +59,7 @@ parts:
     sections:
     - file: docs/fagmoduler/matematikk1T_andregrads
     - file: docs/fagmoduler/matematikk1T_likninger
-    - file: docs/fagmoduler/matematikk1P.ipynb
+    - file: docs/fagmoduler/matematikk1P
     - file: docs/fagmoduler/stokastiske_simuleringerS1
     - file: docs/fagmoduler/numerisk_derivasjon_R
     - file: docs/tema4_numeriske_metoder/integrasjon

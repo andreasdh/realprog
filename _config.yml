@@ -25,7 +25,7 @@ notebook_interface            : "notebook"
 #######################################################################################
 # Launch button settings
 repository:
-  url                         : https://andreasdh.github.io/NAT3000/
+  url                         : https://realprog.no
   path_to_book                : "mini_book"
 
 binder:

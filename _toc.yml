@@ -60,6 +60,7 @@ parts:
     - file: docs/fagmoduler/matematikk1P
     - file: docs/fagmoduler/stokastiske_simuleringerS1
     - file: docs/fagmoduler/numerisk_derivasjon_R
+    - file: docs/fagmoduler/tallmønstre_R_S
   - file: docs/fagmoduler/naturvitenskap_vgs
     sections:
     - file: docs/fagmoduler/nedarving
@@ -70,7 +71,8 @@ parts:
     - file: docs/fagmoduler/kjemiske_beregninger
   - file: docs/fagmoduler/ungdomsskolen
     sections:
-    - file: docs/fagmoduler/sannsynlighet_u.ipynb
+    - file: docs/fagmoduler/sannsynlighet_u
+    - file: docs/fagmoduler/tallmønstre
 - caption: Datafiler
   chapters:
   - file: docs/datafiler

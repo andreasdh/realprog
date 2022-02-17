@@ -34,15 +34,12 @@ parts:
   - file: docs/tema3_datahandtering/lese_filer
   - file: docs/tema3_datahandtering/statistikk
   - file: docs/tema3_datahandtering/maskinlaring
-  - file: docs/tema3_datahandtering/maskinlaring_titanic_oppgave
 - caption: Tema 4 - Numeriske metoder
   chapters:
   - file: docs/tema4_numeriske_metoder/likninger
-  - file: docs/tema4_numeriske_metoder/likninger_oppgave1
   - file: docs/tema4_numeriske_metoder/derivasjon
   - file: docs/tema4_numeriske_metoder/integrasjon
   - file: docs/tema4_numeriske_metoder/symbolsk_cas
-  - file: docs/tema4_numeriske_metoder/numeriske_biblioteker
 - caption: Tema 5 - Modellering
   chapters:
   - file: docs/tema5_modellering/regresjonsmodeller
@@ -59,6 +56,7 @@ parts:
     sections:
     - file: docs/fagmoduler/matematikk1T_andregrads
     - file: docs/fagmoduler/matematikk1T_likninger
+    - file: docs/fagmoduler/likninger_oppgave1
     - file: docs/fagmoduler/matematikk1P
     - file: docs/fagmoduler/stokastiske_simuleringerS1
     - file: docs/fagmoduler/numerisk_derivasjon_R

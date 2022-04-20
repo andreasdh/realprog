@@ -46,6 +46,7 @@ parts:
   - file: docs/tema5_modellering/regresjonsmodeller
   - file: docs/tema5_modellering/diskret_modellering
   - file: docs/tema5_modellering/differensiallikninger
+  - file: docs/tema5_modellering/modelleringsprosjekt_smitte
 - caption: Tema 6 - Teknologi og grafikk
   chapters:
   - file: docs/tema6_teknologi_visualisering/teknologi

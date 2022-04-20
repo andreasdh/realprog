@@ -23,6 +23,7 @@ parts:
 - caption: Tema 2 - Programmering i  fagfornyelsen
   chapters:
   - file: docs/tema2_programmering_i_fagfornyelsen/undervisningsmetoder
+  - file: docs/tema2_programmering_i_fagfornyelsen/blokkprogrammering
   - file: docs/tema2_programmering_i_fagfornyelsen/algoritmer
   - file: docs/tema2_programmering_i_fagfornyelsen/programmeringsverktoy
 - caption: Tema 3 - Datahåndtering

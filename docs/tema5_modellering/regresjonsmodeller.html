@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Regresjonsmodeller &#8212; Realfaglig programmering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Modellering" href="diskret_modellering.html" />
+    <link rel="prev" title="Symbolsk utregning med Python" href="../tema4_numeriske_metoder/symbolsk_cas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/Logo-UiO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Realfaglig programmering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 1 - Grunnleggende programmering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/tall_variabler.html">
+   Variabler og datatyper
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz1.html">
+     Quiz 1: Variabler og aritmetikk
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/lister.html">
+   Lister
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz2.html">
+     Quiz 2: Lister
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/if-tester.html">
+   Vilkår (if-tester)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz3.html">
+     Quiz 3: Vilkår (if-tester)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/lokker.html">
+   Løkker
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz4.html">
+     Quiz 4: Løkker
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/funksjoner.html">
+   Funksjoner
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz5.html">
+     Quiz 5: Funksjoner
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 2 - Programmering i  fagfornyelsen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema2_programmering_i_fagfornyelsen/undervisningsmetoder.html">
+   Undervisningsmetoder
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema2_programmering_i_fagfornyelsen/blokkprogrammering.html">
+   Blokkprogrammering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema2_programmering_i_fagfornyelsen/algoritmer.html">
+   Algoritmer
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 3 - Datahåndtering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema3_datahandtering/datasamlinger.html">
+   Datasamlinger
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz6.html">
+     Quiz 6: Datasamlinger (arrayer og dictionarier)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/plotting.html">
+   Datahåndtering I: Visualisering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/lese_filer.html">
+   Datahåndering II: Håndtere og visualisere data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/statistikk.html">
+   Datahåndering III: Statistikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/maskinlaring.html">
+   Datahåndtering IV: Maskinlæring
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 4 - Numeriske metoder
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/likninger.html">
+   Likninger og nullpunkter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/derivasjon.html">
+   Numerisk derivasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/integrasjon.html">
+   Numerisk integrasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/symbolsk_cas.html">
+   Symbolsk utregning med Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 5 - Modellering
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Regresjonsmodeller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diskret_modellering.html">
+   Modellering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="differensiallikninger.html">
+   Differensiallikninger og kontinuerlige modeller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelleringsprosjekt_smitte.html">
+   Modelleringsoppgave: Smittemodellering
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 6 - Teknologi og grafikk
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema6_teknologi_visualisering/teknologi.html">
+   Teknologi og programmering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema6_teknologi_visualisering/turtlegrafikk.html">
+   Grafikk og geometri
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fagmoduler
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../fagmoduler/matematikk_vgs.html">
+   Matematikk VGS
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/matematikk1T_andregrads.html">
+     Andregradslikninger (1T)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/matematikk1T_likninger.html">
+     Løsing av likninger (1T)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/likninger_oppgave1.html">
+     Numerisk løsing av likninger (oppgave)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/matematikk1P.html">
+     Økonomi, prosent og vekst (1P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/stokastiske_simuleringerS1.html">
+     Simulering av stokastiske forsøk (S1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/numerisk_derivasjon_R.html">
+     Numerisk derivasjon (R1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/tallm%C3%B8nstre_R_S.html">
+     Tallmønstre (S2/R2)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../fagmoduler/naturvitenskap_vgs.html">
+   Naturvitenskap VGS
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/nedarving.html">
+     Simulering av nedarving (naturfag)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/datahandtering.html">
+     Datahåndtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/fysikk_kinematikk.html">
+     Simulering av kinematikk (fysikk)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/biologi_populasjonsdynamikk.html">
+     Programmering i biologi
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/kjemi_periodiske_egenskaper.html">
+     Periodiske egenskaper (kjemi)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/kjemiske_beregninger.html">
+     Kjemiske beregninger (kjemi)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../fagmoduler/ungdomsskolen.html">
+   Ungdomsskole
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/sannsynlighet_u.html">
+     Simulering av stokastiske forsøk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/tallm%C3%B8nstre.html">
+     Tallmønstre
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datafiler
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datafiler.html">
+   Datafiler
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/tema5_modellering/regresjonsmodeller.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lineaer-regresjon">
+   Lineær regresjon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#andre-regresjonsmodeller">
+   Andre regresjonsmodeller
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Regresjonsmodeller</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lineaer-regresjon">
+   Lineær regresjon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#andre-regresjonsmodeller">
+   Andre regresjonsmodeller
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="regresjonsmodeller">
+<h1>Regresjonsmodeller<a class="headerlink" href="#regresjonsmodeller" title="Permalink to this headline">#</a></h1>
+<p>Regresjon er en form for modellering som brukes i mange ulike fagdisipliner, fra samfunnsvitenskap og økonomi til naturvitenskap og matematikk. Det betyr å finne en funksjon som er best tilpasset datasettet vårt. Regresjon tar ofte utgangspunkt i <em>minste kvadraters metode</em>, som gjør at vi får en modellfunksjon som gir minst mulig varians. Regresjonsmodeller passer derfor ofte ikke perfekt med alle, eller noen, av punktene. Modellene har heller et avvik fra gjennomsnittet av punktene (varians) som er så lite som mulig.</p>
+<section id="lineaer-regresjon">
+<h2>Lineær regresjon<a class="headerlink" href="#lineaer-regresjon" title="Permalink to this headline">#</a></h2>
+<p>Vi har tidligere sett på enkel <a class="reference external" href="https://andreasdh.github.io/NAT3000/docs/tema3_datahandtering/statistikk.html#regresjon">polynomregresjon</a> med funksjonen <em>polyfit</em> fra numpy-biblioteket. Denne kan brukes dersom vi for eksempel ønsker å utføre lineær regresjon eller andregradsregresjon. Men hvis vi ønsker å tilpasse dataene våre til en vilkårlig modell, må vi bruke en annen funksjon. Funksjonen <em>curve_fit</em> fra scipy-biblioteket har den funksjonaliteten vi ønsker. Da definerer vi en bestemt modell, i form av en Python-funksjon, som er utgangspunktet for regresjonen vår. Modellfunksjonen må ta som parameter en uavhengig variabel, i tillegg til koeffisientene/konstantene i uttrykket. Hvis vi for eksempel ønsker å gjøre en lineær regresjon, kan vi definere følgende funksjon:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modell</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her ser vi at variabelen <em>x</em> og konstantene <em>a</em> og <em>b</em> er gitt som parametre i funksjonen. La oss lage en lineær modell ut fra følgende data, som et eksempel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Først importerer vi funksjonen fra underbiblioteket <em>optimize</em>, som finnes i scipy-biblioteket. Deretter bruker vi funksjonen til å lage en lineær modell som passer best mulig med dataene våre. Funksjonen <em>curve</em>\fit_ gir både koeffisientene <em>a</em> og <em>b</em>, men også et mål på hvor godt modellen passer dataene våre som kalles <em>kovarians</em>. Dette skal vi ikke se på her, men vi må passe på å lagre koeffisientene og kovariansen i ulike variabler, slik at vi får ut riktige verdier for modellen vår. Parametrene i <em>curve_fit</em> er modellfunksjonen vår og dataene vi vil beskrive med modellen vår (her <em>x</em> og <em>y</em>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="n">koeffisienter</span><span class="p">,</span> <span class="n">kovarians</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">modell</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Koeffisienter:&quot;</span><span class="p">,</span> <span class="n">koeffisienter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kovarians:&quot;</span><span class="p">,</span> <span class="n">kovarians</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Koeffisienter: [ 2.1  -0.18]
+Kovarians: [[ 0.06359996 -0.19079989]
+ [-0.19079989  0.69959972]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi overser her de fire verdiene som utgjør kovariansen vår, og ser at vi har fått koeffisientene <span class="math notranslate nohighlight">\(a = 2,1\)</span> og <span class="math notranslate nohighlight">\(b = -0,18\)</span>. Dette betyr at regresjonsmodellen har formen <span class="math notranslate nohighlight">\(y = 2,1x - 0,18\)</span>. Koeffisientene kommer i den rekkefølgen vi har gitt i modellfunksjonen vår. La oss derfor legge dem i hver sin variabel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">koeffisienter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">koeffisienter</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nå kan vi for eksempel plotte datapunktene og modellfunksjonen i samme koordinatsystem. Da genererer vi noen nye <em>x</em>-verdier som vi kan lage funksjonsverdier ut fra, og deretter bruker vi modellfunksjonen til å generere <em>y</em>-verdier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x_ny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y_modell</span> <span class="o">=</span> <span class="n">modell</span><span class="p">(</span><span class="n">x_ny</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_ny</span><span class="p">,</span> <span class="n">y_modell</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;cornflowerblue&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Tilpasset modell&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;navy&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Datapunkter&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresjonsmodeller_9_0.png" src="../../_images/regresjonsmodeller_9_0.png" />
+</div>
+</div>
+<p>En måte å måle hvor godt modellen er tilpasset dataene våre, er å regne ut <span class="math notranslate nohighlight">\(R^2\)</span>. Da mater vi inn de originale <em>x</em>-verdiene i modellen vår, og sammenlikner dem med de originale <em>y</em>-verdiene:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_predikert</span> <span class="o">=</span> <span class="n">modell</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">R2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predikert</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2 =&quot;</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 = 0.9585289514866979
+</pre></div>
+</div>
+</div>
+</div>
+<p>En <span class="math notranslate nohighlight">\(R^2\)</span>-score varierer mellom 0 og 1, der 1 er perfekt tilpasning til modellen, og 0 er ingen tilpasning. Desto høyere verdi <span class="math notranslate nohighlight">\(R^2\)</span> har, desto bedre forklarer modellen de allerede eksisterende dataene (men ikke nødvendigvis data i framtiden!).</p>
+</section>
+<section id="andre-regresjonsmodeller">
+<h2>Andre regresjonsmodeller<a class="headerlink" href="#andre-regresjonsmodeller" title="Permalink to this headline">#</a></h2>
+<p>Hvis vi ønsker å bruke andre regresjonsmodeller, er det bare å endre modellfunksjonen vår. Dersom vi for eksempel ønsker å gjøre en logistisk regresjon av dataene våre ovenfor, kan vi definere en generell logistisk funksjon:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{c}{1 + a\cdot e^{-bx}}\]</div>
+<p>Dette kan vi gjøre enkelt i Python, og vi kan gjenta den samme prosedyren med tilpasning og plotting som med lineær regresjon. Et fullstendig program vil kunne se slik ut:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">modell_logistisk</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">koeffisienter</span><span class="p">,</span> <span class="n">kovarians</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">modell_logistisk</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">koeffisienter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">koeffisienter</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">koeffisienter</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">x_ny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y_modell</span> <span class="o">=</span> <span class="n">modell_logistisk</span><span class="p">(</span><span class="n">x_ny</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_ny</span><span class="p">,</span> <span class="n">y_modell</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;cornflowerblue&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Tilpasset modell&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;navy&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Datapunkter&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresjonsmodeller_14_0.png" src="../../_images/regresjonsmodeller_14_0.png" />
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave</p>
+<ol>
+<li><p>Forklar hvordan programmet ovenfor fungerer.</p></li>
+<li><p>Lag en modell som beskriver dataene som beskriver <a class="reference external" href="https://raw.githubusercontent.com/andreasdh/NAT3000/master/docs/datafiler/smitte_virus.csv">antall smittede som funksjon av tid</a>. Logistisk regresjon kan fort feile, så det er lurt å gjette på noen fornuftige parametre. Her kan det være lurt å prøve både små, mellomstore og store verdier. I dette tilfellet bør vi verken bruke for store eller for små verdier for <em>a</em>, <em>b</em> og <em>c</em>. Vi kan prøve å gjette at alle parameterne er 10. Det gjør vi slik:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">koeffisienter</span><span class="p">,</span> <span class="n">kovarians</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">modell_logistisk</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Hvis du får en “OptimizeWarning”, må du antakelig gjette på noen andre startverdier for parameterne.</p>
+</li>
+<li><p>Tolk modellen og beskriv hva den kan fortelle oss.</p></li>
+<li><p>Regn ut <span class="math notranslate nohighlight">\(R^2\)</span> for modellen og forklar hva dette sier oss.</p></li>
+</ol>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tema5_modellering"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../tema4_numeriske_metoder/symbolsk_cas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Symbolsk utregning med Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="diskret_modellering.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modellering</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Center for Computing in Science Education (CCSE), Universitetet i Oslo<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

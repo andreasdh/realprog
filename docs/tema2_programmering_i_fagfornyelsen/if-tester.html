@@ -1,0 +1,1146 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Vilkår (if-tester) &#8212; Realfaglig programmering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/Logo-UiO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Realfaglig programmering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 1 - Grunnleggende programmering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/tall_variabler.html">
+   Variabler og datatyper
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz1.html">
+     Quiz 1: Variabler og aritmetikk
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/lister.html">
+   Lister
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz2.html">
+     Quiz 2: Lister
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/if-tester.html">
+   Vilkår (if-tester)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz3.html">
+     Quiz 3: Vilkår (if-tester)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/lokker.html">
+   Løkker
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz4.html">
+     Quiz 4: Løkker
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema1_grunnleggende_programmering/funksjoner.html">
+   Funksjoner
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz5.html">
+     Quiz 5: Funksjoner
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 2 - Programmering i  fagfornyelsen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="undervisningsmetoder.html">
+   Undervisningsmetoder
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="blokkprogrammering.html">
+   Blokkprogrammering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="algoritmer.html">
+   Algoritmer
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 3 - Datahåndtering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tema3_datahandtering/datasamlinger.html">
+   Datasamlinger
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tema1_grunnleggende_programmering/quiz6.html">
+     Quiz 6: Datasamlinger (arrayer og dictionarier)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/plotting.html">
+   Datahåndtering I: Visualisering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/lese_filer.html">
+   Datahåndering II: Håndtere og visualisere data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/statistikk.html">
+   Datahåndering III: Statistikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema3_datahandtering/maskinlaring.html">
+   Datahåndtering IV: Maskinlæring
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 4 - Numeriske metoder
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/likninger.html">
+   Likninger og nullpunkter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/derivasjon.html">
+   Numerisk derivasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/integrasjon.html">
+   Numerisk integrasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema4_numeriske_metoder/symbolsk_cas.html">
+   Symbolsk utregning med Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 5 - Modellering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema5_modellering/regresjonsmodeller.html">
+   Regresjonsmodeller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema5_modellering/diskret_modellering.html">
+   Modellering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema5_modellering/differensiallikninger.html">
+   Differensiallikninger og kontinuerlige modeller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema5_modellering/modelleringsprosjekt_smitte.html">
+   Modelleringsoppgave: Smittemodellering
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tema 6 - Teknologi og grafikk
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema6_teknologi_visualisering/teknologi.html">
+   Teknologi og programmering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tema6_teknologi_visualisering/turtlegrafikk.html">
+   Grafikk og geometri
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fagmoduler
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../fagmoduler/matematikk_vgs.html">
+   Matematikk VGS
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/matematikk1T_andregrads.html">
+     Andregradslikninger (1T)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/matematikk1T_likninger.html">
+     Løsing av likninger (1T)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/likninger_oppgave1.html">
+     Numerisk løsing av likninger (oppgave)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/matematikk1P.html">
+     Økonomi, prosent og vekst (1P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/stokastiske_simuleringerS1.html">
+     Simulering av stokastiske forsøk (S1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/numerisk_derivasjon_R.html">
+     Numerisk derivasjon (R1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/tallm%C3%B8nstre_R_S.html">
+     Tallmønstre (S2/R2)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../fagmoduler/naturvitenskap_vgs.html">
+   Naturvitenskap VGS
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/nedarving.html">
+     Simulering av nedarving (naturfag)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/datahandtering.html">
+     Datahåndtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/fysikk_kinematikk.html">
+     Simulering av kinematikk (fysikk)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/biologi_populasjonsdynamikk.html">
+     Programmering i biologi
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/kjemi_periodiske_egenskaper.html">
+     Periodiske egenskaper (kjemi)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/kjemiske_beregninger.html">
+     Kjemiske beregninger (kjemi)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../fagmoduler/ungdomsskolen.html">
+   Ungdomsskole
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/sannsynlighet_u.html">
+     Simulering av stokastiske forsøk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fagmoduler/tallm%C3%B8nstre.html">
+     Tallmønstre
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datafiler
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datafiler.html">
+   Datafiler
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/tema2_programmering_i_fagfornyelsen/if-tester.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definisjon">
+   Definisjon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vilkar-i-python">
+   Vilkår i Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oppgaver">
+   Oppgaver
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video">
+   Video
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Vilkår (if-tester)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definisjon">
+   Definisjon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vilkar-i-python">
+   Vilkår i Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oppgaver">
+   Oppgaver
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video">
+   Video
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="vilkar-if-tester">
+<h1>Vilkår (if-tester)<a class="headerlink" href="#vilkar-if-tester" title="Permalink to this headline">#</a></h1>
+<div class="admonition-laeringsutbytte admonition">
+<p class="admonition-title">Læringsutbytte</p>
+<p>Etter å ha arbeidet med dette temaet, skal du kunne:</p>
+<ol class="simple">
+<li><p>bruke vilkår til å systematisere valg i programkode</p></li>
+<li><p>illustrere og løse matematiske og naturvitenskapelige problemstillinger med sammensatt kode der vilkår inngår</p></li>
+</ol>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Innledende oppgave</p>
+<p>Før du går i gang med å programmere, prøv å forklare hva følgende kodesnutter gjør:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er større enn 8.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er mindre enn 8.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er mindre enn 8.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er ikke mindre enn 8.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er mindre enn 8.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tall</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er ikke mindre enn 8.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="definisjon">
+<h2>Definisjon<a class="headerlink" href="#definisjon" title="Permalink to this headline">#</a></h2>
+<div class="admonition-vilkar admonition">
+<p class="admonition-title">Vilkår</p>
+<p>Et vilkår, eller en betingelse, er en logisk test for å sjekke om et kriterium er oppfylt. Dersom kriteriet er oppfylt, utføres det en handling. Dersom kriteriet ikke er oppfylt, blir ikke handlingen utført. Vilkår beskrives ofte i programmering som en «hvis-setning» («if» i Python).</p>
+</div>
+<p>Vilkår er sentrale i programmering, men også sentrale i hverdagen. Vi kan lage et enkelt eksempel ut fra billettpriser på bussen. Hvis du er under 18 år, blir prisen 31 kroner. Hvis ikke, regnes du som voksen, og må betale 62 kroner. Vi kan beskrive dette med følgende pseudokode:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>hvis alder er mindre enn 18:
+    pris = 31
+hvis ikke:
+    pris = 62
+</pre></div>
+</div>
+<p>Dersom vi oversetter denne pseudokoden til Python-kode, ser vi at logikken og strukturen er ganske lik:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="n">pris</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">pris</span> <span class="o">=</span> <span class="mi">62</span>
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Underveisoppgave</p>
+<p>Vi kan illustrere hvordan vilkår fungerer med et puslespill. Puslespillet nedenfor er basert på billettpriseksempelet. Løs puslespillet nedenfor uten å se på Python-koden ovenfor. Pass på at innrykkene er riktig! Hva tror du innrykk betyr?</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1000"
+    height="450"
+    src="https://parsons.herokuapp.com/puzzle/1a01c8b7115240199d88a732d06317b1"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</section>
+<section id="vilkar-i-python">
+<h2>Vilkår i Python<a class="headerlink" href="#vilkar-i-python" title="Permalink to this headline">#</a></h2>
+<p>La oss se på et eksempel i Python:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn et tall: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurra, tallet er større enn 1!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Programmet ber brukeren om å taste inn et vilkårlig tall som deretter konverteres til flyttall. Vilkåret starter med <em>if</em>, etterfulgt av variabelnavnet. Deretter gir vi et kriterium som skal sjekkes. Her tester vi om tallet er større enn 1. Dersom det er større enn 1, skrives det ut en beskjed. Vi må ha et kolon etter første linje, og innrykk på alt som hører til det spesifikke kriteriet. Dersom kriteriet ikke er oppfylt, skjer det ingen ting. Dersom vi vil at det skal skje noe selv om kriteriet ikke er oppfylt, kan vi legge til <em>else</em>-kommandoen:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn et tall: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurra, tallet er større enn 1!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er ikke større enn 1.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dersom kriteriet (tall &gt; 1) ikke er sant, blir beskjeden etter <em>else</em> skrevet ut. Vi kan legge til enda flere kriterier ved å bruke <em>elif</em> (forkortelse for <em>else if</em>):</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn et tall: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurra, tallet er større enn 1!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tall</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er mindre enn 1!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er 1!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Det er en logisk konklusjon at tallet <em>er</em> 1 dersom det verken er større eller mindre enn 1. For å være helt sikre, kan vi erstatte else-kommandoen med nok en elif-kommando:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn et tall: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurra, tallet er større enn 1!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tall</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er mindre enn 1!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tall</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er 1!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Legg merke til at symbolet <em>==</em> brukes for å teste om tallet er lik 1. Dersom vi bruker enkel likhetstegn (=) tror Python at vi prøver å tilordne en variabel. Da får vi en feilmelding. De ulike symbolene som brukes i vilkår, er oppsummert i tabellen nedenfor.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Betydning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;</p></td>
+<td><p>Større enn</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;</p></td>
+<td><p>Mindre enn</p></td>
+</tr>
+<tr class="row-even"><td><p>==</p></td>
+<td><p>Er lik</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;=</p></td>
+<td><p>Mindre enn eller lik</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;=</p></td>
+<td><p>Større enn eller lik</p></td>
+</tr>
+<tr class="row-odd"><td><p>!=</p></td>
+<td><p>Ikke lik</p></td>
+</tr>
+</tbody>
+</table>
+<p>Det er noen ting å passe spesielt på når vi programmerer med vilkår:</p>
+<ul class="simple">
+<li><p>Alt som er rykket inn utføres kun hvis if-testen ovenfor er sann. Innrykk er derfor viktig for strukturen.</p></li>
+<li><p>“elif” står for “else if”, og sjekker noe nytt, mens “else” brukes for å gjøre noe dersom ingen av kriteriene under “if” og “elif” er sanne.</p></li>
+<li><p>Det er den første if-testen som er sann i en serie av if-elif-else som utføres. Alle andre overses. Dersom vi skriver “if” en gang til, begynner vi på en ny serie med if-elif-else.</p></li>
+<li><p>Vi <em>må</em> begynne med “if”, mens “elif” og “else” er valgfritt.</p></li>
+<li><p>De logiske operatorene vi kan velge mellom, er:</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Underveisoppgave</p>
+<p>Lag et program der du sjekker om et tall er positivt, negativt eller null, og skriver ut relevante setninger når de ulike kriteriene er nådd. Du kan ta utgangspunkt i programkoden i kodeboksen her:</p>
+</div>
+<iframe src="https://trinket.io/embed/python3/12af96f83e?font=1.5em" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er positivt&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tall</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er negativt&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>    <span class="c1"># Eventuelt elif tall == 0:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tallet er 0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="oppgaver">
+<h2>Oppgaver<a class="headerlink" href="#oppgaver" title="Permalink to this headline">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3.1</p>
+<p>Forklar hvorfor de to ulike programmene nedenfor gir ulike output.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<p>Verdien til <em>a</em> er større enn 5. Dette gjør at programmet vil gjøre det som står under <em>if</em> i begge programmene.</p>
+<p>Første program vil utføre <em>a = a + 2</em> etter if -testen uansett om <em>a &gt; 5</em> stemmer eller ikke. Dette er fordi <em>a = a + 2</em> ikke er en del av if-testen.</p>
+<p>Siden andre kodesnutt bruker en else-kommando, vil <em>a = a + 2</em> utføres kun når <em>a</em> ikke er større enn 5. Siden verdien til <em>a</em> er større enn 5, vil programmet utføre det som står under <em>if</em>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3.2</p>
+<p>Lag et program som spør brukeren om alderen til brukeren. Skriv ut en kommentar som avhenger av om alderen er under eller over 17. Utvid programmet til å skille mellom flere aldre.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">alder</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hvor gammel er du? &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dra tilbake til barnehagen!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">alder</span> <span class="o">==</span> <span class="mi">17</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er i din beste alder&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Voksenlivet nærmer seg!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dra tilbake til gamlehjemmet!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3.3</p>
+<p>Lag et program som tar en poengsum som input. Programmet skal finne ut hvilken karakter du får dersom maks poengsum er 60 poeng. Finn på karaktergrenser selv.</p>
+<p>Utvid programmet med en maks poengsum. Programmet skal benytte prosenter av denne makssummen til å regne ut sluttkarakteren. Lag prosentgrensene selv.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">maks_poeng</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hva er maks poengsum? &quot;</span><span class="p">))</span>
+<span class="n">poengsum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hvor mange poeng fikk du? &quot;</span><span class="p">))</span>
+
+<span class="n">prosent1</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">prosent2</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">prosent3</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">prosent4</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">prosent5</span> <span class="o">=</span> <span class="mi">95</span>
+
+<span class="n">grense1</span> <span class="o">=</span> <span class="n">maks_poeng</span> <span class="o">/</span><span class="mi">100</span><span class="o">*</span><span class="n">prosent1</span>
+<span class="n">grense2</span> <span class="o">=</span> <span class="n">maks_poeng</span> <span class="o">/</span><span class="mi">100</span><span class="o">*</span><span class="n">prosent2</span>
+<span class="n">grense3</span> <span class="o">=</span> <span class="n">maks_poeng</span> <span class="o">/</span><span class="mi">100</span><span class="o">*</span><span class="n">prosent3</span>
+<span class="n">grense4</span> <span class="o">=</span> <span class="n">maks_poeng</span> <span class="o">/</span><span class="mi">100</span><span class="o">*</span><span class="n">prosent4</span>
+<span class="n">grense5</span> <span class="o">=</span> <span class="n">maks_poeng</span> <span class="o">/</span><span class="mi">100</span><span class="o">*</span><span class="n">prosent5</span>
+
+<span class="k">if</span> <span class="n">poengsum</span> <span class="o">&lt;</span> <span class="n">grense1</span> <span class="p">:</span>
+    <span class="n">karakter</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">elif</span> <span class="n">poengsum</span> <span class="o">&lt;</span> <span class="n">grense2</span> <span class="p">:</span>
+    <span class="n">karakter</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">elif</span> <span class="n">poengsum</span> <span class="o">&lt;</span> <span class="n">grense3</span> <span class="p">:</span>
+    <span class="n">karakter</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">elif</span> <span class="n">poengsum</span> <span class="o">&lt;</span> <span class="n">grense4</span> <span class="p">:</span>
+    <span class="n">karakter</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">elif</span> <span class="n">poengsum</span> <span class="o">&lt;</span> <span class="n">grense5</span> <span class="p">:</span>
+    <span class="n">karakter</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1"># poengsum må være større enn grense5</span>
+    <span class="n">karakter</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du fikk karakteren&quot;</span><span class="p">,</span> <span class="n">karakter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3.4</p>
+<p>Lag et program som tar to tall som input. Programmet skal skrive ut hvilket av de to tallene som er størst.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Skriv et tall: &quot;</span><span class="p">))</span>
+<span class="n">tall2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Skriv et til tall: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">tall1</span> <span class="o">&gt;</span> <span class="n">tall2</span><span class="p">:</span>
+    <span class="n">største</span> <span class="o">=</span> <span class="n">tall1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">største</span> <span class="o">=</span> <span class="n">tall2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Det største tallet av&quot;</span><span class="p">,</span> <span class="n">tall1</span> <span class="p">,</span><span class="s2">&quot;og&quot;</span><span class="p">,</span> <span class="n">tall2</span><span class="p">,</span><span class="s2">&quot;er:&quot;</span><span class="p">,</span> <span class="n">største</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3.5</p>
+<p>Puslespillet nedenfor skal bli et program som skal regne ut hvor mange løsninger en andregradslikning på formen <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span> har. Prøv å sette sammen puslespillet. Hvis du blir fort ferdig eller trenger en ekstra utfordring, kan du prøve <a class="reference external" href="http://parsons.problemsolving.io/puzzle/a56e0f5a917a4079aadffb571c3d411e">denne varianten</a>.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="600"
+    height="600"
+    src="https://parsons.herokuapp.com/puzzle/6e30d3320c8e4ba69b61a0e302754a3c"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3.6</p>
+<p>Lag et program som tar utgangspunkt i puslespillet ovenfor. Programmet skal også regne ut hva løsningene er.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">rotuttrykk</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+
+<span class="k">if</span> <span class="n">rotuttrykk</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">rotuttrykk</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">rotuttrykk</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Likningen har løsningene x1 =&quot;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s2">&quot;og x2 =&quot;</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">rotuttrykk</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Likningen har løsningen x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Likningen har ingen reelle løsninger.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3.7</p>
+<p>Lag en kalkulator der brukeren må taste inn to tall og en regneoperasjon. Du bestemmer selv hvor mange regneoperasjoner programmet skal håndtere.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tall1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Første tall: &quot;</span><span class="p">))</span>
+<span class="n">op</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Velg operasjon ( + , - , / , * ): &quot;</span><span class="p">)</span>
+<span class="n">tall2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot; Andre tall: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">tall1</span> <span class="o">+</span> <span class="n">tall2</span>
+<span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">tall1</span> <span class="o">-</span> <span class="n">tall2</span>
+<span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">tall1</span> <span class="o">/</span> <span class="n">tall2</span>
+<span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">tall1</span> <span class="o">*</span> <span class="n">tall2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="s2">&quot;udefinert &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tall1</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">tall2</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">resultat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Fysikkoppgave</p>
+<p>Lag et program der du kan taste inn bølgelengden til synlig lys i nm og få ut hvilken farge lyset har. Utvid eventuelt programmet med andre deler av det elektromagnetiske spekteret.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">bl</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Skriv inn lysets bølgelengde i nm: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="mi">380</span> <span class="o">&lt;=</span> <span class="n">bl</span> <span class="o">&lt;</span> <span class="mi">420</span><span class="p">:</span>
+    <span class="n">farge</span> <span class="o">=</span> <span class="s2">&quot;fiolett&quot;</span>
+<span class="k">elif</span> <span class="mi">420</span> <span class="o">&lt;=</span> <span class="n">bl</span> <span class="o">&lt;</span> <span class="mi">490</span><span class="p">:</span>
+    <span class="n">farge</span> <span class="o">=</span> <span class="s2">&quot;blå&quot;</span>
+<span class="k">elif</span> <span class="mi">490</span> <span class="o">&lt;=</span> <span class="n">bl</span> <span class="o">&lt;</span> <span class="mi">575</span><span class="p">:</span>
+    <span class="n">farge</span> <span class="o">=</span> <span class="s2">&quot;grønn&quot;</span>
+<span class="k">elif</span> <span class="mi">575</span> <span class="o">&lt;=</span> <span class="n">bl</span> <span class="o">&lt;</span> <span class="mi">585</span><span class="p">:</span>
+    <span class="n">farge</span> <span class="o">=</span> <span class="s2">&quot;gul&quot;</span>
+<span class="k">elif</span> <span class="mi">585</span> <span class="o">&lt;=</span> <span class="n">bl</span> <span class="o">&lt;</span> <span class="mi">650</span><span class="p">:</span>
+    <span class="n">farge</span> <span class="o">=</span> <span class="s2">&quot;oransje &quot;</span>
+<span class="k">elif</span> <span class="mi">650</span> <span class="o">&lt;=</span> <span class="n">bl</span> <span class="o">&lt;=</span> <span class="mi">750</span><span class="p">:</span>
+    <span class="n">farge</span> <span class="o">=</span> <span class="s2">&quot;rød&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">farge</span> <span class="o">=</span> <span class="s2">&quot;udefinert &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fargen til lyset er:&quot;</span><span class="p">,</span> <span class="n">farge</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Kjemioppgave</p>
+<p>Lag et program med en variabel kalt pH. Programmet skal skrive ut om løsningen med denne pH-en er sur, basisk eller nøytral.</p>
+<div class="math notranslate nohighlight">
+\[pH = -log([H_3O^+])\]</div>
+<p>Her står <span class="math notranslate nohighlight">\([H_3O^+]\)</span> for konsentrasjonen av <span class="math notranslate nohighlight">\(H_3O^+\)</span>-ioner. Test programmet med <span class="math notranslate nohighlight">\([H_3O^+] = 1\cdot 10^{-7}\)</span>. Dette bør gi nøytral løsning.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log10</span>
+
+<span class="n">oksonium</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;[H3O+]: &quot;</span><span class="p">))</span>
+<span class="n">pH</span> <span class="o">=</span> <span class="o">-</span><span class="n">log10</span><span class="p">(</span><span class="n">oksonium</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">pH</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Løsningen er sur.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">pH</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Løsningen er basisk.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">pH</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span> <span class="c1"># Eventuelt else:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Løsning er nøytral.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Biologioppgave</p>
+<p>Vi skal se på en populasjon av mennesker og ser på et gen som finnes i to varianter: <span class="math notranslate nohighlight">\(a\)</span> og <span class="math notranslate nohighlight">\(A\)</span>. Andelen av populasjonen som har variant <span class="math notranslate nohighlight">\(a\)</span> kan vi kalle for <span class="math notranslate nohighlight">\(p\)</span> og andelen av populasjonen som har variant <span class="math notranslate nohighlight">\(A\)</span> kan vi kalle for <span class="math notranslate nohighlight">\(q\)</span>. Verdiene til <span class="math notranslate nohighlight">\(p\)</span> og <span class="math notranslate nohighlight">\(q\)</span> må være mellom 0 og 1.
+Siden alle i populasjonen vil ha enten <span class="math notranslate nohighlight">\(a\)</span> eller <span class="math notranslate nohighlight">\(A\)</span> (eller begge), må <span class="math notranslate nohighlight">\(p + q = 1\)</span>.</p>
+<p>Populasjonen sies å være i <em>Hardy-Weinberg-likevekt</em> dersom verdiene til <span class="math notranslate nohighlight">\(p\)</span> og <span class="math notranslate nohighlight">\(q\)</span> ikke forandrer seg under forutsetningen at det foregår tilfeldig paring, ingen mutasjoner, ingen naturlig seleksjon og ingen evolusjon i populasjonen.</p>
+<p>Dersom populasjonen er i Hardy-Weinberg-likevekt kan en finne andelen til de tre mulige genotypene til menneskene i populasjonen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(AA\)</span> : <span class="math notranslate nohighlight">\(p^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Aa\)</span> : <span class="math notranslate nohighlight">\(2pq\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(aa\)</span> : <span class="math notranslate nohighlight">\(q^2\)</span></p></li>
+</ul>
+<p>Lag et program som ber brukeren om verdien til <span class="math notranslate nohighlight">\(p\)</span> og <span class="math notranslate nohighlight">\(q\)</span>.
+Programmet skal så teste om <span class="math notranslate nohighlight">\( p + q = 1\)</span>. Hvis summen er 1, skal programmet regne ut andelene til de tre mulige genotypene, og skrive dem ut. Hvis summen ikke er 1, skal programmet skrive en feilmelding.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Løsningsforslag</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot; Hvor stor andel har genvariant a?: &quot;</span><span class="p">))</span>
+<span class="n">q</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot; Hvor stor andel har genvariant A?: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">p</span> <span class="o">+</span> <span class="n">q</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">AA</span> <span class="o">=</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">Aa</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">q</span>
+    <span class="n">aa</span> <span class="o">=</span> <span class="n">q</span><span class="o">**</span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Andel som har genotype AA:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Andel som har genotype Aa:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">Aa</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Andel som har genotype aa:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">aa</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summen av p og q er ikke lik 1!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="video">
+<h2>Video<a class="headerlink" href="#video" title="Permalink to this headline">#</a></h2>
+<p>Se videoen nedenfor for å få en gjennomgang av det viktigste når vi skal programmere if-tester i Python:</p>
+<iframe width="900" height="600" src="https://www.youtube.com/embed/XkDoYa7aGwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tema2_programmering_i_fagfornyelsen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Center for Computing in Science Education (CCSE), Universitetet i Oslo<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

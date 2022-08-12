@@ -67,6 +67,7 @@ parts:
     - file: docs/fagmoduler/nedarving
     - file: docs/fagmoduler/datahandtering
     - file: docs/fagmoduler/fysikk_kinematikk
+    - file: docs/fagmoduler/pendelbevegelse
     - file: docs/fagmoduler/biologi_populasjonsdynamikk
     - file: docs/fagmoduler/kjemi_periodiske_egenskaper
     - file: docs/fagmoduler/kjemiske_beregninger

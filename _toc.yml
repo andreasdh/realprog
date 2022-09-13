@@ -20,6 +20,7 @@ parts:
   - file: docs/tema1_grunnleggende_programmering/funksjoner
     sections:
     - file: docs/tema1_grunnleggende_programmering/quiz5
+  - file: docs/tema1_grunnleggende_programmering/grunnleggende_programmering
 - caption: Tema 2 - Programmering i  fagfornyelsen
   chapters:
   - file: docs/tema2_programmering_i_fagfornyelsen/undervisningsmetoder

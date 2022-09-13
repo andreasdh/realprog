@@ -35,7 +35,6 @@ parts:
   - file: docs/tema3_datahandtering/plotting
   - file: docs/tema3_datahandtering/lese_filer
   - file: docs/tema3_datahandtering/statistikk
-  - file: docs/tema3_datahandtering/maskinlaring
 - caption: Tema 4 - Numeriske metoder
   chapters:
   - file: docs/tema4_numeriske_metoder/likninger

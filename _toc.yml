@@ -47,6 +47,8 @@ parts:
   - file: docs/tema5_modellering/diskret_modellering
   - file: docs/tema5_modellering/differensiallikninger
   - file: docs/tema5_modellering/modelleringsprosjekt_smitte
+  - file: docs/tema3_datahandtering/maskinlaring_titanic_oppgave
+  - file: docs/tema3_datahandtering/maskinlaring_titanic_losning
 - caption: Tema 6 - Teknologi og grafikk
   chapters:
   - file: docs/tema6_teknologi_visualisering/teknologi

@@ -57,6 +57,8 @@ parts:
   chapters:
   - file: docs/fagmoduler/matematikk_vgs
     sections:
+    - file: docs/fagmoduler/polygontall
+    - file: docs/fagmoduler/numerisk_derivasjon_oppgaver
     - file: docs/fagmoduler/matematikk1T_andregrads
     - file: docs/fagmoduler/matematikk1T_likninger
     - file: docs/fagmoduler/likninger_oppgave1

@@ -47,8 +47,6 @@ parts:
   - file: docs/tema5_modellering/diskret_modellering
   - file: docs/tema5_modellering/differensiallikninger
   - file: docs/tema5_modellering/modelleringsprosjekt_smitte
-  - file: docs/tema3_datahandtering/maskinlaring_titanic_oppgave
-  - file: docs/tema3_datahandtering/maskinlaring_titanic_losning
 - caption: Tema 6 - Teknologi og grafikk
   chapters:
   - file: docs/tema6_teknologi_visualisering/teknologi
@@ -57,14 +55,13 @@ parts:
   chapters:
   - file: docs/fagmoduler/matematikk_vgs
     sections:
-    - file: docs/fagmoduler/polygontall
-    - file: docs/fagmoduler/numerisk_derivasjon_oppgaver
     - file: docs/fagmoduler/matematikk1T_andregrads
     - file: docs/fagmoduler/matematikk1T_likninger
     - file: docs/fagmoduler/likninger_oppgave1
     - file: docs/fagmoduler/matematikk1P
     - file: docs/fagmoduler/stokastiske_simuleringerS1
-    - file: docs/fagmoduler/numerisk_derivasjon_R
+    - file: docs/fagmoduler/polygontall
+    - file: docs/fagmoduler/numerisk_derivasjon_oppgaver
     - file: docs/fagmoduler/tallmønstre_R_S
   - file: docs/fagmoduler/naturvitenskap_vgs
     sections:

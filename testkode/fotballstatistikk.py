@@ -1,8 +1,8 @@
 # Statistikk: Antall mål, stddev, mål hjemme/borte Eliteserien 2023
 
 import matplotlib.pyplot as plt # trengs ikke på trinket?
-import numpy as np
-from scipy.stats import norm
+#import numpy as np
+#from scipy.stats import norm
 import pandas as pd
 import seaborn as sns
 

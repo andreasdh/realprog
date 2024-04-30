@@ -1,0 +1,241 @@
+hjemmelag,bortelag,mål_hjemme,mål_borte
+Rosenborg,Viking,1,0
+Aalesund,Vålerenga,0,1
+HamKam,Sandefjord,2,0
+Sarpsborg 08,Bodø/Glimt,0,2
+Stabæk,Odd,0,0
+Tromsø,Molde,1,0
+Brann,Haugesund,3,0
+Lillestrøm,Strømsgodset,4,3
+Viking,Lillestrøm,2,0
+Bodø/Glimt,Stabæk,4,0
+Haugesund,HamKam,3,2
+Molde,Rosenborg,1,1
+Odd,Brann,2,0
+Sandefjord,Tromsø,0,0
+Strømsgodset,Aalesund,1,0
+Vålerenga,Sarpsborg 08,0,2
+Brann,Vålerenga,3,1
+Aalesund,Bodø/Glimt,0,3
+HamKam,Strømsgodset,2,0
+Rosenborg,Sandefjord,1,1
+Sarpsborg 08,Odd,0,0
+Stabæk,Haugesund,3,0
+Tromsø,Viking,1,1
+Lillestrøm,Molde,2,1
+Bodø/Glimt,Brann,2,2
+Haugesund,Sarpsborg 08,0,0
+Molde,Stabæk,2,3
+Sandefjord,Aalesund,4,0
+Strømsgodset,Tromsø,0,1
+Viking,HamKam,7,3
+Odd,Rosenborg,0,0
+Vålerenga,Lillestrøm,3,4
+Rosenborg,Vålerenga,1,3
+Aalesund,Haugesund,0,0
+HamKam,Molde,0,4
+Stabæk,Sarpsborg 08,1,1
+Tromsø,Odd,0,1
+Viking,Strømsgodset,1,1
+Lillestrøm,Bodø/Glimt,1,2
+Brann,Sandefjord,0,0
+Odd,Lillestrøm,0,1
+Bodø/Glimt,Rosenborg,3,2
+HamKam,Tromsø,1,2
+Molde,Strømsgodset,3,2
+Sandefjord,Viking,1,2
+Sarpsborg 08,Brann,2,1
+Stabæk,Aalesund,1,0
+Haugesund,Vålerenga,1,1
+Aalesund,Molde,3,1
+Brann,Stabæk,4,1
+Lillestrøm,Sarpsborg 08,1,2
+Rosenborg,Haugesund,1,0
+Strømsgodset,Sandefjord,1,0
+Tromsø,Bodø/Glimt,2,3
+Viking,Odd,3,2
+Vålerenga,HamKam,3,0
+Bodø/Glimt,Viking,5,1
+Brann,Rosenborg,3,1
+Haugesund,Tromsø,1,2
+Molde,Sandefjord,5,0
+Odd,Strømsgodset,1,1
+Sarpsborg 08,Aalesund,3,1
+Stabæk,Vålerenga,2,1
+HamKam,Lillestrøm,0,0
+Aalesund,Brann,1,3
+Lillestrøm,Stabæk,3,1
+Rosenborg,HamKam,4,0
+Sandefjord,Odd,4,1
+Strømsgodset,Haugesund,1,2
+Tromsø,Sarpsborg 08,2,1
+Vålerenga,Bodø/Glimt,1,3
+Viking,Molde,3,4
+Aalesund,Tromsø,2,3
+Bodø/Glimt,HamKam,3,0
+Haugesund,Sandefjord,3,2
+Odd,Molde,1,0
+Sarpsborg 08,Viking,1,3
+Stabæk,Rosenborg,2,2
+Vålerenga,Strømsgodset,0,1
+Brann,Lillestrøm,2,2
+Viking,Brann,3,1
+HamKam,Odd,0,1
+Molde,Haugesund,1,0
+Rosenborg,Sarpsborg 08,0,3
+Tromsø,Stabæk,2,1
+Strømsgodset,Bodø/Glimt,2,0
+Lillestrøm,Aalesund,5,1
+Sandefjord,Vålerenga,1,2
+Vålerenga,Viking,1,2
+Aalesund,Rosenborg,1,0
+Brann,HamKam,2,1
+Haugesund,Odd,2,1
+Lillestrøm,Tromsø,0,1
+Sarpsborg 08,Sandefjord,6,1
+Bodø/Glimt,Molde,2,2
+Stabæk,Strømsgodset,0,1
+HamKam,Aalesund,2,1
+Viking,Haugesund,2,0
+Odd,Bodø/Glimt,0,2
+Rosenborg,Lillestrøm,1,2
+Sandefjord,Stabæk,0,0
+Strømsgodset,Sarpsborg 08,5,2
+Tromsø,Vålerenga,0,0
+Molde,Brann,2,0
+Vålerenga,Molde,0,4
+Aalesund,Odd,0,3
+Bodø/Glimt,Haugesund,2,1
+Lillestrøm,Sandefjord,4,2
+Rosenborg,Tromsø,2,1
+Sarpsborg 08,HamKam,2,3
+Stabæk,Viking,0,1
+Brann,Strømsgodset,1,0
+Molde,Sarpsborg 08,5,1
+HamKam,Stabæk,3,2
+Haugesund,Lillestrøm,1,0
+Odd,Vålerenga,2,1
+Sandefjord,Bodø/Glimt,2,5
+Tromsø,Brann,3,1
+Strømsgodset,Rosenborg,0,1
+Viking,Aalesund,3,1
+Stabæk,Molde,0,1
+Vålerenga,Sandefjord,2,3
+Aalesund,Strømsgodset,1,0
+Bodø/Glimt,Tromsø,0,2
+Brann,Viking,0,2
+Lillestrøm,HamKam,3,1
+Rosenborg,Odd,3,2
+Sarpsborg 08,Haugesund,2,1
+Molde,Aalesund,3,0
+Strømsgodset,Vålerenga,1,3
+HamKam,Brann,0,2
+Haugesund,Rosenborg,1,2
+Odd,Stabæk,4,0
+Sandefjord,Sarpsborg 08,5,1
+Tromsø,Lillestrøm,3,1
+Viking,Bodø/Glimt,3,2
+Bodø/Glimt,Odd,2,0
+Rosenborg,Brann,0,2
+Sandefjord,Molde,2,2
+Sarpsborg 08,Strømsgodset,1,2
+Aalesund,HamKam,0,2
+Lillestrøm,Viking,1,3
+Vålerenga,Haugesund,1,1
+Stabæk,Tromsø,0,1
+Molde,Vålerenga,0,0
+Odd,Sarpsborg 08,0,3
+Brann,Aalesund,5,1
+HamKam,Rosenborg,3,0
+Haugesund,Bodø/Glimt,1,3
+Strømsgodset,Lillestrøm,1,2
+Tromsø,Sandefjord,1,0
+Viking,Stabæk,1,0
+Sarpsborg 08,Tromsø,4,0
+Rosenborg,Aalesund,4,0
+Sandefjord,Haugesund,0,0
+Vålerenga,Odd,2,2
+Bodø/Glimt,Strømsgodset,2,0
+Lillestrøm,Brann,0,2
+Molde,Viking,4,0
+Stabæk,HamKam,5,2
+Viking,Vålerenga,1,1
+Aalesund,Lillestrøm,1,1
+Brann,Sarpsborg 08,1,0
+HamKam,Bodø/Glimt,4,4
+Haugesund,Molde,1,2
+Odd,Sandefjord,3,2
+Strømsgodset,Stabæk,2,1
+Tromsø,Rosenborg,3,1
+Haugesund,Viking,0,2
+Molde,Odd,4,1
+Sandefjord,Strømsgodset,2,0
+Rosenborg,Bodø/Glimt,1,1
+Sarpsborg 08,Lillestrøm,3,1
+Stabæk,Brann,0,1
+Tromsø,HamKam,2,1
+Vålerenga,Aalesund,3,1
+Aalesund,Stabæk,1,1
+Bodø/Glimt,Vålerenga,4,2
+Brann,Tromsø,2,1
+HamKam,Sarpsborg 08,1,1
+Lillestrøm,Rosenborg,3,0
+Odd,Haugesund,1,1
+Strømsgodset,Molde,1,1
+Viking,Sandefjord,4,3
+Odd,Viking,1,1
+Haugesund,Strømsgodset,1,0
+Molde,Bodø/Glimt,1,3
+Sandefjord,HamKam,0,1
+Sarpsborg 08,Rosenborg,5,2
+Stabæk,Lillestrøm,1,0
+Tromsø,Aalesund,1,2
+Vålerenga,Brann,1,2
+Bodø/Glimt,Sandefjord,4,3
+Brann,Molde,3,2
+Aalesund,Sarpsborg 08,3,2
+HamKam,Haugesund,0,3
+Lillestrøm,Vålerenga,2,0
+Rosenborg,Stabæk,1,1
+Strømsgodset,Odd,3,1
+Viking,Tromsø,3,4
+Haugesund,Aalesund,6,1
+Odd,HamKam,2,0
+Sandefjord,Brann,1,1
+Sarpsborg 08,Stabæk,2,2
+Strømsgodset,Viking,1,0
+Vålerenga,Rosenborg,1,3
+Bodø/Glimt,Lillestrøm,3,1
+Molde,Tromsø,1,4
+HamKam,Viking,3,0
+Brann,Odd,2,1
+Lillestrøm,Haugesund,1,0
+Rosenborg,Molde,3,1
+Sarpsborg 08,Vålerenga,3,2
+Stabæk,Bodø/Glimt,0,4
+Tromsø,Strømsgodset,0,1
+Aalesund,Sandefjord,0,3
+Haugesund,Brann,0,2
+Bodø/Glimt,Aalesund,1,0
+Molde,Lillestrøm,4,0
+Odd,Tromsø,1,2
+Sandefjord,Rosenborg,3,2
+Strømsgodset,HamKam,0,1
+Viking,Sarpsborg 08,2,1
+Vålerenga,Stabæk,0,0
+Aalesund,Viking,0,4
+Brann,Bodø/Glimt,4,2
+HamKam,Vålerenga,0,2
+Lillestrøm,Odd,4,4
+Rosenborg,Strømsgodset,1,3
+Sarpsborg 08,Molde,1,3
+Stabæk,Sandefjord,2,1
+Tromsø,Haugesund,2,1
+Bodø/Glimt,Sarpsborg 08,2,0
+Haugesund,Stabæk,3,0
+Molde,HamKam,1,1
+Odd,Aalesund,4,1
+Sandefjord,Lillestrøm,1,0
+Strømsgodset,Brann,3,0
+Viking,Rosenborg,1,5
+Vålerenga,Tromsø,1,1

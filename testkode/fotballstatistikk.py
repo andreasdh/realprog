@@ -11,29 +11,7 @@ fotballdata = pd.read_csv("eliteserien2023.txt", delimiter = ",")
 # Oppgave 1: Finn snitt og standarddavvik for mål til hjemmelaget og bortelaget
 print(fotballdata.describe())
 
-'''
-snitt_hjemme = fotballdata["mål_hjemme"].mean()                           # gjennomsnitt
-standardavvik_hjemme = fotballdata["mål_hjemme"].std()                    # estimert standardavvik
-min_hjemme = fotballdata["mål_hjemme"].min()
-maks_hjemme = fotballdata["mål_hjemme"].max()
-x_hjemme = np.arange(min_hjemme, maks_hjemme, 0.001)
-y_hjemme = norm.pdf(x_hjemme, snitt_hjemme, standardavvik_hjemme)
-
-snitt_borte = fotballdata["mål_borte"].mean()                           # gjennomsnitt
-standardavvik_borte = fotballdata["mål_borte"].std()                    # estimert standardavvik
-min_borte = fotballdata["mål_borte"].min()
-maks_borte = fotballdata["mål_borte"].max()
-x_borte = np.arange(min_borte, maks_borte, 0.001)
-y_borte = norm.pdf(x_borte, snitt_borte, standardavvik_borte)
-
-plt.plot(x_hjemme, y_hjemme, label="mål hjemme")
-plt.plot(x_borte, y_borte, label="mål borte")
-plt.legend()
-plt.show() # trengs ikke på trinket?
-'''
-
 # Oppgave 2: Hvilke lag scoret og slapp inn mest hjemme? Og borte?
-
 sns.catplot(data=fotballdata, x="mål_hjemme", y="hjemmelag", kind="violin")
 plt.show() # trengs ikke på trinket?
 

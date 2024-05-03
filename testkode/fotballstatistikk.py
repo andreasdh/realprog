@@ -8,10 +8,12 @@ import seaborn as sns
 
 fotballdata = pd.read_csv("eliteserien2023.txt", delimiter = ",")
 
-# Oppgave 1: Finn snitt og standarddavvik for mål til hjemmelaget og bortelaget
+# Oppgave 1: Finn snitt og standarddavvik for mål til hjemmelaget og bortelaget (enklest mulig)
+
 print(fotballdata.describe())
 
 # Oppgave 2: Hvilke lag scoret og slapp inn mest hjemme? Og borte?
+
 sns.catplot(data=fotballdata, x="mål_hjemme", y="hjemmelag", kind="violin")
 plt.show() # trengs ikke på trinket?
 

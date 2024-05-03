@@ -63,6 +63,7 @@ parts:
     - file: docs/fagmoduler/polygontall
     - file: docs/fagmoduler/numerisk_derivasjon_oppgaver
     - file: docs/fagmoduler/tallmønstre_R_S
+    - file: docs/fagmoduler/regresjon
   - file: docs/fagmoduler/naturvitenskap_vgs
     sections:
     - file: docs/fagmoduler/nedarving

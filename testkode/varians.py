@@ -21,6 +21,7 @@ sum_avvik_2 = 0
 for flekker in flekkdata:
     sum_avvik_2 += (flekker - snitt)**2 # alltid positivt
 snitt_avvik_2 = sum_avvik_2/n # gjennomsnittlig kvadratavvik i DATASETTET vårt
+print("Gjennomsnittlig kvadratavvik:", round(snitt_avvik_2, 1))
 
 varians = sum_avvik_2/(n-1) # (estimert) gjennomsnittlig kvadratavvik i HELE POPULASJONEN
 # hvorfor (n-1)?

@@ -16,28 +16,38 @@ jobs:
         with:
           python-version: '3.8'
       
-      - name: Upgrade pip, setuptools, and wheel
+      # 1) Oppgrader pip, setuptools, wheel
+      - name: Upgrade pip, setuptools, wheel
         run: |
           python --version
-          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade "setuptools>=75.6.0"
+          python -m pip install --upgrade wheel
 
+      # 2) Sjekk at vi faktisk har ny pip / setuptools
+      - name: Check versions
+        run: |
+          pip --version
+          python -m pip --version
+          python -c "import setuptools; print(setuptools.__version__)"
+
+      # 3) Installer dependencies (inkl. jupyter-book)
       - name: Install dependencies
         run: |
           python -m pip install -r requirements.txt
+          # Evt. andre separate pakker hvis du trenger dem
           python -m pip install attrs
 
+      # 4) Bygg boken
       - name: Build book
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd $GITHUB_WORKSPACE
-          git init
-          git config user.name "Github Actions"
-          git config user.email "github-actions-bot@users.noreply.github.com"
-          git checkout master
-
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-actions-bot@users.noreply.github.com"
           jupyter-book build .
-      
+
+      # 5) Deploy
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

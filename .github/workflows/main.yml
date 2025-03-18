@@ -15,27 +15,29 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-
-      - name: install
+      
+      - name: Upgrade pip, setuptools, and wheel
         run: |
           python --version
-          python -m pip install setuptools
+          python -m pip install --upgrade pip setuptools wheel
+
+      - name: Install dependencies
+        run: |
           python -m pip install -r requirements.txt
           python -m pip install attrs
 
-      - name: build
+      - name: Build book
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-
           cd $GITHUB_WORKSPACE
           git init
           git config user.name "Github Actions"
           git config user.email "github-actions-bot@users.noreply.github.com"
-          REPOSITORY_PATH="https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-
           git checkout master
+
           jupyter-book build .
+      
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

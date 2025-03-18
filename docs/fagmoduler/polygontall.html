@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Polygontall &#8212; Realfaglig programmering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/fagmoduler/polygontall';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Numerisk derivasjon" href="numerisk_derivasjon_oppgaver.html" />
+    <link rel="prev" title="Simulering av stokastiske forsøk (S1)" href="stokastiske_simuleringerS1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/Logo-UiO.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/Logo-UiO.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/tall_variabler.html">
+                        Variabler og datatyper
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/lister.html">
+                        Lister
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/if-tester.html">
+                        Vilkår (if-tester)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/lokker.html">
+                        Løkker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/funksjoner.html">
+                        Funksjoner
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/grunnleggende_programmering.html">
+                        Grunnleggende programmering (oppgaver)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/undervisningsmetoder.html">
+                        Undervisningsmetoder
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/blokkprogrammering.html">
+                        Blokkprogrammering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/algoritmer.html">
+                        Matematiske algoritmer og stokastiske simuleringer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/programmeringsverktoy.html">
+                        Programmeringsverktøy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/datasamlinger.html">
+                        Datasamlinger
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/plotting.html">
+                        Visualisering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/lese_filer.html">
+                        Håndtere og visualisere data
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/statistikk.html">
+                        Statistikk
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/likninger.html">
+                        Likninger og nullpunkter
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/derivasjon.html">
+                        Numerisk derivasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/integrasjon.html">
+                        Numerisk integrasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/symbolsk_cas.html">
+                        Symbolsk utregning (CAS)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/regresjonsmodeller.html">
+                        Regresjonsmodeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/diskret_modellering.html">
+                        Modellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/differensiallikninger.html">
+                        Differensiallikninger og kontinuerlige modeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/modelleringsprosjekt_smitte.html">
+                        Modelleringsoppgave: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/modelleringsrapport.html">
+                        Rapporteksempel: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema6_teknologi_visualisering/teknologi.html">
+                        Teknologi og programmering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema6_teknologi_visualisering/turtlegrafikk.html">
+                        Grafikk og geometri
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="matematikk_vgs.html">
+                        Matematikk VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="naturvitenskap_vgs.html">
+                        Naturvitenskap VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="ungdomsskolen.html">
+                        Ungdomsskole
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../datafiler.html">
+                        Datafiler
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/tall_variabler.html">
+                        Variabler og datatyper
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/lister.html">
+                        Lister
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/if-tester.html">
+                        Vilkår (if-tester)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/lokker.html">
+                        Løkker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/funksjoner.html">
+                        Funksjoner
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema1_grunnleggende_programmering/grunnleggende_programmering.html">
+                        Grunnleggende programmering (oppgaver)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/undervisningsmetoder.html">
+                        Undervisningsmetoder
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/blokkprogrammering.html">
+                        Blokkprogrammering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/algoritmer.html">
+                        Matematiske algoritmer og stokastiske simuleringer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema2_programmering_i_fagfornyelsen/programmeringsverktoy.html">
+                        Programmeringsverktøy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/datasamlinger.html">
+                        Datasamlinger
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/plotting.html">
+                        Visualisering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/lese_filer.html">
+                        Håndtere og visualisere data
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema3_datahandtering/statistikk.html">
+                        Statistikk
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/likninger.html">
+                        Likninger og nullpunkter
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/derivasjon.html">
+                        Numerisk derivasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/integrasjon.html">
+                        Numerisk integrasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema4_numeriske_metoder/symbolsk_cas.html">
+                        Symbolsk utregning (CAS)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/regresjonsmodeller.html">
+                        Regresjonsmodeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/diskret_modellering.html">
+                        Modellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/differensiallikninger.html">
+                        Differensiallikninger og kontinuerlige modeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/modelleringsprosjekt_smitte.html">
+                        Modelleringsoppgave: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema5_modellering/modelleringsrapport.html">
+                        Rapporteksempel: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema6_teknologi_visualisering/teknologi.html">
+                        Teknologi og programmering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../tema6_teknologi_visualisering/turtlegrafikk.html">
+                        Grafikk og geometri
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="matematikk_vgs.html">
+                        Matematikk VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="naturvitenskap_vgs.html">
+                        Naturvitenskap VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="ungdomsskolen.html">
+                        Ungdomsskole
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../datafiler.html">
+                        Datafiler
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/Logo-UiO.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/Logo-UiO.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 1 - Grunnleggende programmering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tema1_grunnleggende_programmering/tall_variabler.html">Variabler og datatyper</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tema1_grunnleggende_programmering/quiz1.html">Quiz 1: Variabler og aritmetikk</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tema1_grunnleggende_programmering/lister.html">Lister</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tema1_grunnleggende_programmering/quiz2.html">Quiz 2: Lister</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tema1_grunnleggende_programmering/if-tester.html">Vilkår (if-tester)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tema1_grunnleggende_programmering/quiz3.html">Quiz 3: Vilkår (if-tester)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tema1_grunnleggende_programmering/lokker.html">Løkker</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tema1_grunnleggende_programmering/quiz4.html">Quiz 4: Løkker</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tema1_grunnleggende_programmering/funksjoner.html">Funksjoner</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tema1_grunnleggende_programmering/quiz5.html">Quiz 5: Funksjoner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tema1_grunnleggende_programmering/grunnleggende_programmering.html">Grunnleggende programmering (oppgaver)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 2 - Programmering i  fagfornyelsen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tema2_programmering_i_fagfornyelsen/undervisningsmetoder.html">Undervisningsmetoder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema2_programmering_i_fagfornyelsen/blokkprogrammering.html">Blokkprogrammering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema2_programmering_i_fagfornyelsen/algoritmer.html">Matematiske algoritmer og stokastiske simuleringer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema2_programmering_i_fagfornyelsen/programmeringsverktoy.html">Programmeringsverktøy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 3 - Datahåndtering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tema3_datahandtering/datasamlinger.html">Datasamlinger</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tema1_grunnleggende_programmering/quiz6.html">Quiz 6: Datasamlinger (arrayer og dictionarier)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tema3_datahandtering/plotting.html">Visualisering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema3_datahandtering/lese_filer.html">Håndtere og visualisere data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema3_datahandtering/statistikk.html">Statistikk</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 4 - Numeriske metoder</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tema4_numeriske_metoder/likninger.html">Likninger og nullpunkter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema4_numeriske_metoder/derivasjon.html">Numerisk derivasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema4_numeriske_metoder/integrasjon.html">Numerisk integrasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema4_numeriske_metoder/symbolsk_cas.html">Symbolsk utregning (CAS)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 5 - Modellering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tema5_modellering/regresjonsmodeller.html">Regresjonsmodeller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema5_modellering/diskret_modellering.html">Modellering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema5_modellering/differensiallikninger.html">Differensiallikninger og kontinuerlige modeller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema5_modellering/modelleringsprosjekt_smitte.html">Modelleringsoppgave: Smittemodellering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema5_modellering/modelleringsrapport.html">Rapporteksempel: Smittemodellering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 6 - Teknologi og grafikk</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tema6_teknologi_visualisering/teknologi.html">Teknologi og programmering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tema6_teknologi_visualisering/turtlegrafikk.html">Grafikk og geometri</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fagmoduler</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="matematikk_vgs.html">Matematikk VGS</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="matematikk1T_andregrads.html">Andregradslikninger (1T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matematikk1T_likninger.html">Løsing av likninger (1T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="likninger_oppgave1.html">Numerisk løsing av likninger (oppgave)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matematikk1P.html">Økonomi, prosent og vekst (1P)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stokastiske_simuleringerS1.html">Simulering av stokastiske forsøk (S1)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Polygontall</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="numerisk_derivasjon_oppgaver.html">Numerisk derivasjon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tallm%C3%B8nstre_R_S.html">Tallmønstre (S2/R2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresjon.html">Regresjon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="naturvitenskap_vgs.html">Naturvitenskap VGS</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="nedarving.html">Simulering av nedarving (naturfag)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datahandtering.html">Datahåndtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fysikk_kinematikk.html">Simulering av kinematikk (fysikk)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pendelbevegelse.html">Pendelbevegelse (fysikk 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="biologi_populasjonsdynamikk.html">Programmering i biologi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kjemi_periodiske_egenskaper.html">Periodiske egenskaper (kjemi)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kjemiske_beregninger.html">Kjemiske beregninger (kjemi)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oppgaver_biologiOL.html">Oppgave i modellering for biologi-OL</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ungdomsskolen.html">Ungdomsskole</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="sannsynlighet_u.html">Simulering av stokastiske forsøk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tallm%C3%B8nstre.html">Tallmønstre</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datafiler</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../datafiler.html">Datafiler</a></li>
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="../../_sources/docs/fagmoduler/polygontall.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</a>
+      
+      <li>
+<button onclick="printPdf(this)"
+  class="btn btn-sm dropdown-item"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</a>
+      
+  </ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Polygontall</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Polygontall
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repetisjon-partall-og-oddetall">
+     Repetisjon: partall og oddetall
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Polygontall
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sammensatte-oppgaver">
+   Sammensatte oppgaver
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
+  <section class="tex2jax_ignore mathjax_ignore" id="polygontall">
+<h1>Polygontall<a class="headerlink" href="#polygontall" title="Permalink to this heading">#</a></h1>
+<p>Du har kanskje hørt om kvadrattall? Og kanskje også trekanttall? Dette er tallfølger som hører innunder begrepet <em>figurtall</em>, nærmere bestemt <em>polygontall</em>. Et polygon kan også kalles <em>mangekant</em> eller <em>n-kant</em>. Polygontall er positive heltall som representerer et mønster ordnet i formen av en regulær polygon.</p>
+<p>Figurtall lar oss visualisere tall som geometriske former. Å se ting på ulike måter
+får oss til å forstå verden på ulike måter, og kanskje lar det oss bidra med vårt eget, unike perspektiv. Det er essensen i matematikk.</p>
+<p>Vi kan visualisere de seks første trekantallene slik:</p>
+<p><img alt="trekanttall" src="https://github.com/andreasdh/realprog/blob/master/docs/fagmoduler/bilder/trekanttall.png?raw=true" /></p>
+<p>Du ser kanskje mønsteret?</p>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 1: Figur av firkanttall</p>
+<p>Lag en figur som viser de fire første firkanttallene.</p>
+</div>
+<p>Vi kan representere firkanttallene med følgende formel, som beskriver hvordan et kvadrat med <em>n</em> sider inneholder <span class="math notranslate nohighlight">\(K_n\)</span> kuler:</p>
+<p><span class="math notranslate nohighlight">\(K_{n+1} = K_n + (2n + 1)\)</span></p>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 2: Formel for trekanttall</p>
+<p>Lag en formel som beskriver alle trekanttallene. Du kan starte med <span class="math notranslate nohighlight">\(K_1 = 1\)</span> for <span class="math notranslate nohighlight">\(n = 0\)</span>. Bruk formelen til å finne trekanttall nr. 5.</p>
+</div>
+<p>Nå skal vi bruke programmering til å beskrive polygontallene. Først repeterer vi litt ved å bruke programmering til å beskrive et par enda enklere tallfølger: partall og oddetall.</p>
+<section id="repetisjon-partall-og-oddetall">
+<h2>Repetisjon: partall og oddetall<a class="headerlink" href="#repetisjon-partall-og-oddetall" title="Permalink to this heading">#</a></h2>
+<p>Partall er alle heltall som er delelige med 2, men vi kan også beskrive dem som en tallfølge der det neste tallet er det forrige + 2, og der vi starter med et tall, <span class="math notranslate nohighlight">\(T_0\)</span>, som er delelig med 2:</p>
+<div class="math notranslate nohighlight">
+\[T_{n+1} = T_n + 2\]</div>
+<p>Tilsvarende blir det for oddetall, men da starter vi med et tall som ikke er delelig med 2. Vi tar utgangspunkt i denne måten å beskrive disse tallfølgene på i oppgavene nedenfor. Sørg for at du forstår notasjonen med indekser før du begynner (<span class="math notranslate nohighlight">\(n + 1\)</span> som indeks betyr “neste tall” og <span class="math notranslate nohighlight">\(n\)</span> betyr nåværende tall).</p>
+<p>Oppgavene nedenfor skal dere gjøre sammen i par. Dere skal ha hver deres rolle, og bytte rolle for hver oppgave.</p>
+<ol class="arabic simple">
+<li><p>Rolle 1: Du skal forklare hva personen med rolle 2 skal skrive. Du skal ikke skrive kode selv.</p></li>
+<li><p>Rolle 2: Du skal skrive koden som personen med rolle 1 forklarer. Du skal ikke komme med forslag til kode selv, med mindre personen med rolle 1 står fast en stund.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 3: Partall</p>
+<p>Nedenfor ser du et enkelt Python-program som skal regne ut alle partall fra 0 til og med 20. Fyll ut det som mangler for at programmet skal fungere.</p>
+<iframe src="https://trinket.io/embed/python3/abe519bec9" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 4: Oddetall</p>
+<p>Modifiser programmet i oppgave 3 slik at det skriver ut alle oddetall fra 1 til og med 21.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 5: Partall med for-løkke</p>
+<p>Modifiser programmet i oppgave 3 slik at det benytter en for-løkke istedenfor en while-løkke til å regne ut partallene.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 6: Oddetall med for-løkke</p>
+<p>Modifiser programmet i oppgave 4 slik at det benytter en for-løkke istedenfor en while-løkke til å regne ut oddetallene.</p>
+</div>
+</section>
+<section id="id1">
+<h2>Polygontall<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Nå kan vi bruke de samme strategiene som med partall og oddetall til å beskrive polygontall som trekanttall og firkanttall/kvadrattall. Løs oppgavene nedenfor. Det er valgfritt hvordan du løser dem, og om du løser dem alene eller sammen med en annen. Du skal presentere løsningene dine i en gruppe til slutt.</p>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 7: Trekanttall</p>
+<p>Lag et program som finner trekanttall nr. 1000. Et nyttig tips her, er å starte med de 5 første trekanttallene og sjekke om programmet regner ut disse riktig. Deretter kan du utvide programmet slik at det finner trekanttall nr. 1000.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 8: Firkanttall</p>
+<p>Lag et program som skriver ut de 10 første firkanttallene.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 9: Femkanttall</p>
+<p>Lag et program som finner femkanttall nr. <em>n</em>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 10 (<strong>Utfordring</strong>): Fibonacci-tallene</p>
+<p>Fibonnacifølgen er en kjent tallfølge med heltall der hvert tall etter det første er summen av de to foregående. Følgen starter slik: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, …</p>
+<p>Lag et program som finner tall nr. <em>n</em> i rekka. Hvis du vil ha starthjelp, kan du klikke på hintet nedenfor - da får du litt kode som du kan starte med.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Hint: Fibonacci-tallene</p>
+<p>Bruk dette uferdige programmet til å løse oppgava ovenfor. Trikset er å hele tida passe på hvilke verdier <span class="math notranslate nohighlight">\(x_0\)</span> og <span class="math notranslate nohighlight">\(x_1\)</span> har. Hvis vi overskriver en av verdiene med nye verdier, har vi ikke lenger tilgang til den gamle verdien. Dette kan vi løse ved å mellomlagre verdiene i andre variabler.</p>
+<iframe src="https://trinket.io/embed/python3/63aeb10d01" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sammensatte-oppgaver">
+<h1>Sammensatte oppgaver<a class="headerlink" href="#sammensatte-oppgaver" title="Permalink to this heading">#</a></h1>
+<p>Fremgangsmåten du har brukt for å beskrive partall, odetall og polygontall, kan generaliseres og benyttes for alle tallfølger. Her skal du prøve deg på noen oppgaver der du kan bruke konseptene du utforsket ovenfor som utgangspunkt.</p>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 11: Bob-Kaares hurtigmat</p>
+<p>Bob-Kaare er ferdig på videregående og har fått jobb i en hurtigmatkjede. Han har fått to tilbud fra sjegen sin. I tilbud 1 får han 100 kroner den første timen. Beløpet som han får den <em>n</em>-te timen er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[a_n = a_{n-1} + 5\]</div>
+<p>I tilbud 2 får han også 100 kroner den første timen. Beløpet som har får i den <em>n</em>-te timen er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[b_n = b_{n-1}\cdot 1.03\]</div>
+<p>a) Hvor mange timer tar det før tilbud 2 vil gi høyere timelønn enn tilbud 1?</p>
+<p>b) Hvor mange timer tar det før tilbud 2 til sammen vil gi mer lønn enn tilbud 2?</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>Det kan være lurt å bruke en while-løkke til å løse oppgave 11. Da kan du bytte ut kriteriet for når den skal stoppe (f.eks. kan den gjenta til tilbud 2 er større enn tilbud 1).</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Oppgave 12: På linje</p>
+<p>I denne oppgava skal du arbeide med linjestykker som settes sammen til en figur.
+Skissen nedenfor viser de 16 første linjestykkene i figuren. Lengden av et linjestykke
+er alltid 90 % av lengden av det forrige linjestykket. Det første linjestykket er 100 cm
+langt.</p>
+<p><img alt="trekanttall" src="https://github.com/andreasdh/realprog/blob/master/docs/fagmoduler/bilder/linjestykker.png?raw=true" /></p>
+<p>a) Bestem summen av lengdene av de 8 første linjestykkene i figuren.</p>
+<p>b) Lag et program som du kan bruke til å bestemme summen av lengdene av
+linjestykkene dersom det er mange linjestykker i figuren.
+Hvor mange linjestykker må vi ha med i figuren dersom summen av lengdene skal
+bli minst 9 meter?</p>
+<p>c) Hvor mange prosent øker summen av lengdene dersom vi øker antall linjestykker i
+figuren fra 50 til 100?</p>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/fagmoduler"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="stokastiske_simuleringerS1.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Simulering av stokastiske forsøk (S1)</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="numerisk_derivasjon_oppgaver.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Numerisk derivasjon</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Polygontall
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repetisjon-partall-og-oddetall">
+     Repetisjon: partall og oddetall
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Polygontall
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sammensatte-oppgaver">
+   Sammensatte oppgaver
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andreas Haraldsrud (andreadh@uio.no), Center for Computing in Science Education, Universitetet i Oslo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  </body>
+</html>

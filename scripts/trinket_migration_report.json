@@ -42,7 +42,7 @@
     },
     {
       "path": "docs/tema2_programmering_i_fagfornyelsen/algoritmer.ipynb",
-      "trinket_references_replaced": 3,
+      "trinket_references_replaced": 7,
       "parsons_blocks_removed": 1
     },
     {
@@ -92,7 +92,7 @@
     },
     {
       "path": "docs/fagmoduler/matematikk1T_andregrads.ipynb",
-      "trinket_references_replaced": 0,
+      "trinket_references_replaced": 5,
       "parsons_blocks_removed": 1
     },
     {
@@ -102,12 +102,12 @@
     },
     {
       "path": "docs/fagmoduler/matematikk1P.ipynb",
-      "trinket_references_replaced": 1,
+      "trinket_references_replaced": 5,
       "parsons_blocks_removed": 1
     },
     {
       "path": "docs/fagmoduler/stokastiske_simuleringerS1.ipynb",
-      "trinket_references_replaced": 0,
+      "trinket_references_replaced": 4,
       "parsons_blocks_removed": 1
     },
     {
@@ -117,7 +117,7 @@
     },
     {
       "path": "docs/fagmoduler/numerisk_derivasjon_oppgaver.ipynb",
-      "trinket_references_replaced": 0,
+      "trinket_references_replaced": 1,
       "parsons_blocks_removed": 1
     },
     {
@@ -157,7 +157,7 @@
     },
     {
       "path": "docs/fagmoduler/sannsynlighet_u.ipynb",
-      "trinket_references_replaced": 0,
+      "trinket_references_replaced": 4,
       "parsons_blocks_removed": 1
     },
     {
@@ -445,6 +445,58 @@
       "kind": "blocks",
       "name": "bakterievekst_blokk",
       "source_url": "https://trinket.io/embed/blocks/0a3095c9fa",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "1202b5eb11": {
+      "id": "1202b5eb11",
+      "kind": "python3",
+      "name": "myntkast_ferdig",
+      "source_url": "https://trinket.io/embed/python3/1202b5eb11",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "1eb10f86f1": {
+      "id": "1eb10f86f1",
+      "kind": "python3",
+      "name": "myntkast_feil",
+      "source_url": "https://trinket.io/embed/python3/1eb10f86f1",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "aa45ab2937": {
+      "id": "aa45ab2937",
+      "kind": "python3",
+      "name": "myntkast_fyllinn",
+      "source_url": "https://trinket.io/embed/python3/aa45ab2937",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": "expected an indented block after 'if' statement on line 9 (line 12)"
+    },
+    "3af5057b8c": {
+      "id": "3af5057b8c",
+      "kind": "python3",
+      "name": "myntkast_tom",
+      "source_url": "https://trinket.io/embed/python3/3af5057b8c",
       "main": "main.py",
       "files": [
         "main.py"
@@ -881,6 +933,71 @@
       "assets": [],
       "syntax_error": null
     },
+    "b9cb73d047": {
+      "id": "b9cb73d047",
+      "kind": "python3",
+      "name": "plotting_grafer_abc",
+      "source_url": "https://trinket.io/embed/python3/b9cb73d047",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "0a050f6217": {
+      "id": "0a050f6217",
+      "kind": "python3",
+      "name": "andregrads_antall_løsninger",
+      "source_url": "https://trinket.io/embed/python3/0a050f6217",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "37127ae737": {
+      "id": "37127ae737",
+      "kind": "python3",
+      "name": "andregrads2_feilsøk",
+      "source_url": "https://trinket.io/embed/python3/37127ae737",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "077251a33a": {
+      "id": "077251a33a",
+      "kind": "python3",
+      "name": "andregrads3_fyll_inn",
+      "source_url": "https://trinket.io/embed/python3/077251a33a",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": "expected an indented block after 'if' statement on line 7 (line 9)"
+    },
+    "17b59d09db": {
+      "id": "17b59d09db",
+      "kind": "python3",
+      "name": "andregrads_tom",
+      "source_url": "https://trinket.io/embed/python3/17b59d09db",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
     "d50ba81313": {
       "id": "d50ba81313",
       "kind": "python3",
@@ -912,6 +1029,58 @@
       "kind": "python3",
       "name": "halveringsmetoden_uferdig",
       "source_url": "https://trinket.io/embed/python3/87f92dcdd8",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "4a25973fab": {
+      "id": "4a25973fab",
+      "kind": "python3",
+      "name": "sparing_1",
+      "source_url": "https://trinket.io/embed/python3/4a25973fab",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "786b80ab12": {
+      "id": "786b80ab12",
+      "kind": "python3",
+      "name": "sparing_2_feilsøk",
+      "source_url": "https://trinket.io/embed/python3/786b80ab12",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
+    },
+    "7d96afbb1b": {
+      "id": "7d96afbb1b",
+      "kind": "python3",
+      "name": "sparing3_fyll_inn",
+      "source_url": "https://trinket.io/embed/python3/7d96afbb1b",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": "invalid syntax (line 3)"
+    },
+    "d13ae1669c": {
+      "id": "d13ae1669c",
+      "kind": "python3",
+      "name": "sparing_4_lag_programmet",
+      "source_url": "https://trinket.io/embed/python3/d13ae1669c",
       "main": "main.py",
       "files": [
         "main.py"
@@ -958,6 +1127,19 @@
       "asset_count": 0,
       "assets": [],
       "syntax_error": "expected an indented block after 'for' statement on line 5 (line 8)"
+    },
+    "5d45ef0b97": {
+      "id": "5d45ef0b97",
+      "kind": "python3",
+      "name": "plotting_utvid_til_derivasjon",
+      "source_url": "https://trinket.io/embed/python3/5d45ef0b97",
+      "main": "main.py",
+      "files": [
+        "main.py"
+      ],
+      "asset_count": 0,
+      "assets": [],
+      "syntax_error": null
     },
     "353251c07b": {
       "id": "353251c07b",
@@ -1053,17 +1235,20 @@
   },
   "warnings": [
     "Trinket 86192d4bba: syntax warning: expected an indented block after 'if' statement on line 11 (line 13)",
+    "Trinket aa45ab2937: syntax warning: expected an indented block after 'if' statement on line 9 (line 12)",
     "Trinket 522f854739: syntax warning: expected an indented block after 'for' statement on line 5 (line 9)",
     "Trinket 03c16c2d46: syntax warning: invalid syntax (line 3)",
     "Trinket 7cd27a61af: syntax warning: expected an indented block after 'while' statement on line 10 (line 13)",
     "Trinket 9513da280a: syntax warning: expected an indented block after 'for' statement on line 10 (line 12)",
     "Trinket 378a48e82c: syntax warning: expected an indented block after 'while' statement on line 12 (line 15)",
+    "Trinket 077251a33a: syntax warning: expected an indented block after 'if' statement on line 7 (line 9)",
     "Trinket 85581c2c9d: syntax warning: invalid syntax (line 7)",
+    "Trinket 7d96afbb1b: syntax warning: invalid syntax (line 3)",
     "Trinket abe519bec9: syntax warning: invalid syntax (line 3)",
     "Trinket 63aeb10d01: syntax warning: expected an indented block after 'for' statement on line 5 (line 8)",
     "Trinket d0a76ed82d: syntax warning: invalid syntax (line 14)"
   ],
-  "trinket_references_replaced": 77,
-  "unique_trinkets_snapshotted": 67,
+  "trinket_references_replaced": 99,
+  "unique_trinkets_snapshotted": 81,
   "parsons_blocks_removed": 13
 }

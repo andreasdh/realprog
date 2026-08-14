@@ -38,7 +38,7 @@ jobs:
           import json
           from pathlib import Path
           report = json.loads(Path('scripts/trinket_migration_report.json').read_text(encoding='utf-8'))
-          assert report['trinket_references_replaced'] == 77
+          assert report['trinket_references_replaced'] == 99
           assert report['parsons_blocks_removed'] >= 10
           root = Path('docs/_static/basthon_examples')
           for item in report['trinkets'].values():

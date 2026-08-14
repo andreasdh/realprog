@@ -1,0 +1,2523 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Pandas! &#8212; Realfaglig programmering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/notebooks/utfylte/forelesning2_2022';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/Logo-UiO.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/Logo-UiO.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/tall_variabler.html">
+                        Variabler og datatyper
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/lister.html">
+                        Lister
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/if-tester.html">
+                        Vilkår (if-tester)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/lokker.html">
+                        Løkker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/funksjoner.html">
+                        Funksjoner
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/grunnleggende_programmering.html">
+                        Grunnleggende programmering (oppgaver)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/undervisningsmetoder.html">
+                        Undervisningsmetoder
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/blokkprogrammering.html">
+                        Blokkprogrammering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/algoritmer.html">
+                        Matematiske algoritmer og stokastiske simuleringer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/programmeringsverktoy.html">
+                        Programmeringsverktøy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/datasamlinger.html">
+                        Datasamlinger
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/plotting.html">
+                        Visualisering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/lese_filer.html">
+                        Håndtere og visualisere data
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/statistikk.html">
+                        Statistikk
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/likninger.html">
+                        Likninger og nullpunkter
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/derivasjon.html">
+                        Numerisk derivasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/integrasjon.html">
+                        Numerisk integrasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/symbolsk_cas.html">
+                        Symbolsk utregning (CAS)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/regresjonsmodeller.html">
+                        Regresjonsmodeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/diskret_modellering.html">
+                        Modellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/differensiallikninger.html">
+                        Differensiallikninger og kontinuerlige modeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/modelleringsprosjekt_smitte.html">
+                        Modelleringsoppgave: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/modelleringsrapport.html">
+                        Rapporteksempel: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema6_teknologi_visualisering/teknologi.html">
+                        Teknologi og programmering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema6_teknologi_visualisering/turtlegrafikk.html">
+                        Grafikk og geometri
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../fagmoduler/matematikk_vgs.html">
+                        Matematikk VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../fagmoduler/naturvitenskap_vgs.html">
+                        Naturvitenskap VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../fagmoduler/ungdomsskolen.html">
+                        Ungdomsskole
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../datafiler.html">
+                        Datafiler
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/tall_variabler.html">
+                        Variabler og datatyper
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/lister.html">
+                        Lister
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/if-tester.html">
+                        Vilkår (if-tester)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/lokker.html">
+                        Løkker
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/funksjoner.html">
+                        Funksjoner
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema1_grunnleggende_programmering/grunnleggende_programmering.html">
+                        Grunnleggende programmering (oppgaver)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/undervisningsmetoder.html">
+                        Undervisningsmetoder
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/blokkprogrammering.html">
+                        Blokkprogrammering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/algoritmer.html">
+                        Matematiske algoritmer og stokastiske simuleringer
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema2_programmering_i_fagfornyelsen/programmeringsverktoy.html">
+                        Programmeringsverktøy
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/datasamlinger.html">
+                        Datasamlinger
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/plotting.html">
+                        Visualisering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/lese_filer.html">
+                        Håndtere og visualisere data
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema3_datahandtering/statistikk.html">
+                        Statistikk
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/likninger.html">
+                        Likninger og nullpunkter
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/derivasjon.html">
+                        Numerisk derivasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/integrasjon.html">
+                        Numerisk integrasjon
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema4_numeriske_metoder/symbolsk_cas.html">
+                        Symbolsk utregning (CAS)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/regresjonsmodeller.html">
+                        Regresjonsmodeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/diskret_modellering.html">
+                        Modellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/differensiallikninger.html">
+                        Differensiallikninger og kontinuerlige modeller
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/modelleringsprosjekt_smitte.html">
+                        Modelleringsoppgave: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema5_modellering/modelleringsrapport.html">
+                        Rapporteksempel: Smittemodellering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema6_teknologi_visualisering/teknologi.html">
+                        Teknologi og programmering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tema6_teknologi_visualisering/turtlegrafikk.html">
+                        Grafikk og geometri
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../fagmoduler/matematikk_vgs.html">
+                        Matematikk VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../fagmoduler/naturvitenskap_vgs.html">
+                        Naturvitenskap VGS
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../fagmoduler/ungdomsskolen.html">
+                        Ungdomsskole
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../datafiler.html">
+                        Datafiler
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/Logo-UiO.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/Logo-UiO.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 1 - Grunnleggende programmering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tema1_grunnleggende_programmering/tall_variabler.html">Variabler og datatyper</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tema1_grunnleggende_programmering/quiz1.html">Quiz 1: Variabler og aritmetikk</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tema1_grunnleggende_programmering/lister.html">Lister</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tema1_grunnleggende_programmering/quiz2.html">Quiz 2: Lister</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tema1_grunnleggende_programmering/if-tester.html">Vilkår (if-tester)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tema1_grunnleggende_programmering/quiz3.html">Quiz 3: Vilkår (if-tester)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tema1_grunnleggende_programmering/lokker.html">Løkker</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tema1_grunnleggende_programmering/quiz4.html">Quiz 4: Løkker</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tema1_grunnleggende_programmering/funksjoner.html">Funksjoner</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tema1_grunnleggende_programmering/quiz5.html">Quiz 5: Funksjoner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema1_grunnleggende_programmering/grunnleggende_programmering.html">Grunnleggende programmering (oppgaver)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 2 - Programmering i  fagfornyelsen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../tema2_programmering_i_fagfornyelsen/undervisningsmetoder.html">Undervisningsmetoder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema2_programmering_i_fagfornyelsen/blokkprogrammering.html">Blokkprogrammering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema2_programmering_i_fagfornyelsen/algoritmer.html">Matematiske algoritmer og stokastiske simuleringer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema2_programmering_i_fagfornyelsen/programmeringsverktoy.html">Programmeringsverktøy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 3 - Datahåndtering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tema3_datahandtering/datasamlinger.html">Datasamlinger</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tema1_grunnleggende_programmering/quiz6.html">Quiz 6: Datasamlinger (arrayer og dictionarier)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema3_datahandtering/plotting.html">Visualisering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema3_datahandtering/lese_filer.html">Håndtere og visualisere data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema3_datahandtering/statistikk.html">Statistikk</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 4 - Numeriske metoder</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../tema4_numeriske_metoder/likninger.html">Likninger og nullpunkter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema4_numeriske_metoder/derivasjon.html">Numerisk derivasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema4_numeriske_metoder/integrasjon.html">Numerisk integrasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema4_numeriske_metoder/symbolsk_cas.html">Symbolsk utregning (CAS)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 5 - Modellering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../tema5_modellering/regresjonsmodeller.html">Regresjonsmodeller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema5_modellering/diskret_modellering.html">Modellering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema5_modellering/differensiallikninger.html">Differensiallikninger og kontinuerlige modeller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema5_modellering/modelleringsprosjekt_smitte.html">Modelleringsoppgave: Smittemodellering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema5_modellering/modelleringsrapport.html">Rapporteksempel: Smittemodellering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tema 6 - Teknologi og grafikk</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../tema6_teknologi_visualisering/teknologi.html">Teknologi og programmering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tema6_teknologi_visualisering/turtlegrafikk.html">Grafikk og geometri</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fagmoduler</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../fagmoduler/matematikk_vgs.html">Matematikk VGS</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/matematikk1T_andregrads.html">Andregradslikninger (1T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/matematikk1T_likninger.html">Løsing av likninger (1T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/likninger_oppgave1.html">Numerisk løsing av likninger (oppgave)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/matematikk1P.html">Økonomi, prosent og vekst (1P)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/stokastiske_simuleringerS1.html">Simulering av stokastiske forsøk (S1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/polygontall.html">Polygontall</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/numerisk_derivasjon_oppgaver.html">Numerisk derivasjon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/tallm%C3%B8nstre_R_S.html">Tallmønstre (S2/R2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/regresjon.html">Regresjon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../fagmoduler/naturvitenskap_vgs.html">Naturvitenskap VGS</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/nedarving.html">Simulering av nedarving (naturfag)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/datahandtering.html">Datahåndtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/fysikk_kinematikk.html">Simulering av kinematikk (fysikk)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/pendelbevegelse.html">Pendelbevegelse (fysikk 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/biologi_populasjonsdynamikk.html">Programmering i biologi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/kjemi_periodiske_egenskaper.html">Periodiske egenskaper (kjemi)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/kjemiske_beregninger.html">Kjemiske beregninger (kjemi)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/oppgaver_biologiOL.html">Oppgave i modellering for biologi-OL</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../fagmoduler/ungdomsskolen.html">Ungdomsskole</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/sannsynlighet_u.html">Simulering av stokastiske forsøk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fagmoduler/tallm%C3%B8nstre.html">Tallmønstre</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datafiler</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../datafiler.html">Datafiler</a></li>
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="../../../_sources/docs/notebooks/utfylte/forelesning2_2022.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</a>
+      
+      <li>
+<button onclick="printPdf(this)"
+  class="btn btn-sm dropdown-item"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</a>
+      
+  </ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas!</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Pandas!
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lese-fil-og-undersoke-innholdet">
+     Lese fil og undersøke innholdet
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finne-og-systematisere-sammenhenger">
+     Finne og systematisere sammenhenger
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lage-nye-verdier-i-datarammen">
+     Lage nye verdier i datarammen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisere-sammenhenger">
+   Visualisere sammenhenger
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lese-ulike-filer">
+   Lese ulike filer
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
+  <section id="pandas">
+<h1>Pandas!<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
+<p><img alt="" src="https://miro.medium.com/max/1400/0*1F2u74JQYI8sUuYg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>seaborn
+</pre></div>
+</div>
+</div>
+</div>
+<section id="lese-fil-og-undersoke-innholdet">
+<h2>Lese fil og undersøke innholdet<a class="headerlink" href="#lese-fil-og-undersoke-innholdet" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://www.uio.no/studier/emner/matnat/ifi/IN-KJM1900/h21/datafiler/periodesystemet.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AtomicNumber</th>
+      <th>Element</th>
+      <th>Symbol</th>
+      <th>AtomicMass</th>
+      <th>NumberofNeutrons</th>
+      <th>NumberofProtons</th>
+      <th>NumberofElectrons</th>
+      <th>Period</th>
+      <th>Group</th>
+      <th>Phase</th>
+      <th>...</th>
+      <th>FirstIonization</th>
+      <th>Density</th>
+      <th>MeltingPoint</th>
+      <th>BoilingPoint</th>
+      <th>NumberOfIsotopes</th>
+      <th>Discoverer</th>
+      <th>Year</th>
+      <th>SpecificHeat</th>
+      <th>NumberofShells</th>
+      <th>NumberofValence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Hydrogen</td>
+      <td>H</td>
+      <td>1.007</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>gas</td>
+      <td>...</td>
+      <td>13.5984</td>
+      <td>0.000090</td>
+      <td>14.175</td>
+      <td>20.28</td>
+      <td>3.0</td>
+      <td>Cavendish</td>
+      <td>1766.0</td>
+      <td>14.304</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Helium</td>
+      <td>He</td>
+      <td>4.002</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>18.0</td>
+      <td>gas</td>
+      <td>...</td>
+      <td>24.5874</td>
+      <td>0.000179</td>
+      <td>NaN</td>
+      <td>4.22</td>
+      <td>5.0</td>
+      <td>Janssen</td>
+      <td>1868.0</td>
+      <td>5.193</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Lithium</td>
+      <td>Li</td>
+      <td>6.941</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>5.3917</td>
+      <td>0.534000</td>
+      <td>453.850</td>
+      <td>1615.00</td>
+      <td>5.0</td>
+      <td>Arfvedson</td>
+      <td>1817.0</td>
+      <td>3.582</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Beryllium</td>
+      <td>Be</td>
+      <td>9.012</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>9.3227</td>
+      <td>1.850000</td>
+      <td>1560.150</td>
+      <td>2742.00</td>
+      <td>6.0</td>
+      <td>Vaulquelin</td>
+      <td>1798.0</td>
+      <td>1.825</td>
+      <td>2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Boron</td>
+      <td>B</td>
+      <td>10.811</td>
+      <td>6</td>
+      <td>5</td>
+      <td>5</td>
+      <td>2</td>
+      <td>13.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>8.2980</td>
+      <td>2.340000</td>
+      <td>2573.150</td>
+      <td>4200.00</td>
+      <td>6.0</td>
+      <td>Gay-Lussac</td>
+      <td>1808.0</td>
+      <td>1.026</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 28 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;AtomicNumber&#39;, &#39;Element&#39;, &#39;Symbol&#39;, &#39;AtomicMass&#39;, &#39;NumberofNeutrons&#39;,
+       &#39;NumberofProtons&#39;, &#39;NumberofElectrons&#39;, &#39;Period&#39;, &#39;Group&#39;, &#39;Phase&#39;,
+       &#39;Radioactive&#39;, &#39;Natural&#39;, &#39;Metal&#39;, &#39;Nonmetal&#39;, &#39;Metalloid&#39;, &#39;Type&#39;,
+       &#39;AtomicRadius&#39;, &#39;Electronegativity&#39;, &#39;FirstIonization&#39;, &#39;Density&#39;,
+       &#39;MeltingPoint&#39;, &#39;BoilingPoint&#39;, &#39;NumberOfIsotopes&#39;, &#39;Discoverer&#39;,
+       &#39;Year&#39;, &#39;SpecificHeat&#39;, &#39;NumberofShells&#39;, &#39;NumberofValence&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># Statiske størrelser</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AtomicNumber</th>
+      <th>AtomicMass</th>
+      <th>NumberofNeutrons</th>
+      <th>NumberofProtons</th>
+      <th>NumberofElectrons</th>
+      <th>Period</th>
+      <th>Group</th>
+      <th>AtomicRadius</th>
+      <th>Electronegativity</th>
+      <th>FirstIonization</th>
+      <th>Density</th>
+      <th>MeltingPoint</th>
+      <th>BoilingPoint</th>
+      <th>NumberOfIsotopes</th>
+      <th>Year</th>
+      <th>SpecificHeat</th>
+      <th>NumberofShells</th>
+      <th>NumberofValence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>118.000000</td>
+      <td>118.000000</td>
+      <td>118.000000</td>
+      <td>118.000000</td>
+      <td>118.000000</td>
+      <td>118.000000</td>
+      <td>90.000000</td>
+      <td>86.000000</td>
+      <td>96.000000</td>
+      <td>102.000000</td>
+      <td>105.000000</td>
+      <td>98.000000</td>
+      <td>98.000000</td>
+      <td>103.000000</td>
+      <td>107.000000</td>
+      <td>85.000000</td>
+      <td>118.000000</td>
+      <td>49.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>59.500000</td>
+      <td>145.988297</td>
+      <td>86.483051</td>
+      <td>59.500000</td>
+      <td>59.500000</td>
+      <td>5.254237</td>
+      <td>9.944444</td>
+      <td>1.825814</td>
+      <td>1.695000</td>
+      <td>7.988505</td>
+      <td>9.232161</td>
+      <td>1281.475184</td>
+      <td>2513.143163</td>
+      <td>28.116505</td>
+      <td>1865.280374</td>
+      <td>0.635976</td>
+      <td>5.254237</td>
+      <td>4.428571</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>34.207699</td>
+      <td>88.954899</td>
+      <td>54.785320</td>
+      <td>34.207699</td>
+      <td>34.207699</td>
+      <td>1.618200</td>
+      <td>5.597674</td>
+      <td>0.611058</td>
+      <td>0.621174</td>
+      <td>3.334571</td>
+      <td>8.630406</td>
+      <td>903.685175</td>
+      <td>1601.901036</td>
+      <td>35.864205</td>
+      <td>97.951740</td>
+      <td>1.653965</td>
+      <td>1.618200</td>
+      <td>2.345208</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.007000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.490000</td>
+      <td>0.700000</td>
+      <td>3.893900</td>
+      <td>0.000090</td>
+      <td>14.175000</td>
+      <td>4.220000</td>
+      <td>3.000000</td>
+      <td>1250.000000</td>
+      <td>0.094000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>30.250000</td>
+      <td>66.465750</td>
+      <td>36.000000</td>
+      <td>30.250000</td>
+      <td>30.250000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>1.425000</td>
+      <td>1.237500</td>
+      <td>6.004850</td>
+      <td>2.700000</td>
+      <td>510.695000</td>
+      <td>1069.000000</td>
+      <td>11.000000</td>
+      <td>1803.500000</td>
+      <td>0.168000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>59.500000</td>
+      <td>142.575000</td>
+      <td>83.000000</td>
+      <td>59.500000</td>
+      <td>59.500000</td>
+      <td>6.000000</td>
+      <td>10.500000</td>
+      <td>1.800000</td>
+      <td>1.585000</td>
+      <td>6.960250</td>
+      <td>7.290000</td>
+      <td>1204.150000</td>
+      <td>2767.000000</td>
+      <td>19.000000</td>
+      <td>1878.000000</td>
+      <td>0.244000</td>
+      <td>6.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>88.750000</td>
+      <td>226.750000</td>
+      <td>138.000000</td>
+      <td>88.750000</td>
+      <td>88.750000</td>
+      <td>7.000000</td>
+      <td>15.000000</td>
+      <td>2.200000</td>
+      <td>2.062500</td>
+      <td>8.964925</td>
+      <td>12.000000</td>
+      <td>1811.150000</td>
+      <td>3596.750000</td>
+      <td>24.000000</td>
+      <td>1940.000000</td>
+      <td>0.489000</td>
+      <td>7.000000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>118.000000</td>
+      <td>295.000000</td>
+      <td>178.000000</td>
+      <td>118.000000</td>
+      <td>118.000000</td>
+      <td>7.000000</td>
+      <td>18.000000</td>
+      <td>3.300000</td>
+      <td>3.980000</td>
+      <td>24.587400</td>
+      <td>41.000000</td>
+      <td>3948.150000</td>
+      <td>5869.000000</td>
+      <td>203.000000</td>
+      <td>2010.000000</td>
+      <td>14.304000</td>
+      <td>7.000000</td>
+      <td>8.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atomradius</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;AtomicRadius&quot;</span><span class="p">]</span>
+<span class="n">tetthet</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Density&quot;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">atomradius</span><span class="p">,</span><span class="n">tetthet</span><span class="p">)</span>
+<span class="c1"># Husk aksetitler!</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/f5d2007de35e7312365b6a0571b60c4c215fe82d3e8cba8273354eada807e678.png" src="../../../_images/f5d2007de35e7312365b6a0571b60c4c215fe82d3e8cba8273354eada807e678.png" />
+</div>
+</div>
+</section>
+<section id="finne-og-systematisere-sammenhenger">
+<h2>Finne og systematisere sammenhenger<a class="headerlink" href="#finne-og-systematisere-sammenhenger" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elneg_lav</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Electronegativity&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">elneg_lav</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AtomicNumber</th>
+      <th>Element</th>
+      <th>Symbol</th>
+      <th>AtomicMass</th>
+      <th>NumberofNeutrons</th>
+      <th>NumberofProtons</th>
+      <th>NumberofElectrons</th>
+      <th>Period</th>
+      <th>Group</th>
+      <th>Phase</th>
+      <th>...</th>
+      <th>FirstIonization</th>
+      <th>Density</th>
+      <th>MeltingPoint</th>
+      <th>BoilingPoint</th>
+      <th>NumberOfIsotopes</th>
+      <th>Discoverer</th>
+      <th>Year</th>
+      <th>SpecificHeat</th>
+      <th>NumberofShells</th>
+      <th>NumberofValence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Lithium</td>
+      <td>Li</td>
+      <td>6.941</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>5.3917</td>
+      <td>0.534</td>
+      <td>453.85</td>
+      <td>1615.0</td>
+      <td>5.0</td>
+      <td>Arfvedson</td>
+      <td>1817.0</td>
+      <td>3.582</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Beryllium</td>
+      <td>Be</td>
+      <td>9.012</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>9.3227</td>
+      <td>1.850</td>
+      <td>1560.15</td>
+      <td>2742.0</td>
+      <td>6.0</td>
+      <td>Vaulquelin</td>
+      <td>1798.0</td>
+      <td>1.825</td>
+      <td>2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>Sodium</td>
+      <td>Na</td>
+      <td>22.990</td>
+      <td>12</td>
+      <td>11</td>
+      <td>11</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>5.1391</td>
+      <td>0.971</td>
+      <td>371.15</td>
+      <td>1156.0</td>
+      <td>7.0</td>
+      <td>Davy</td>
+      <td>1807.0</td>
+      <td>1.228</td>
+      <td>3</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>Magnesium</td>
+      <td>Mg</td>
+      <td>24.305</td>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+      <td>3</td>
+      <td>2.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>7.6462</td>
+      <td>1.740</td>
+      <td>923.15</td>
+      <td>1363.0</td>
+      <td>8.0</td>
+      <td>Black</td>
+      <td>1755.0</td>
+      <td>1.023</td>
+      <td>3</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>Aluminum</td>
+      <td>Al</td>
+      <td>26.982</td>
+      <td>14</td>
+      <td>13</td>
+      <td>13</td>
+      <td>3</td>
+      <td>13.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>5.9858</td>
+      <td>2.700</td>
+      <td>933.40</td>
+      <td>2792.0</td>
+      <td>8.0</td>
+      <td>Wshler</td>
+      <td>1827.0</td>
+      <td>0.897</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>Silicon</td>
+      <td>Si</td>
+      <td>28.086</td>
+      <td>14</td>
+      <td>14</td>
+      <td>14</td>
+      <td>3</td>
+      <td>14.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>8.1517</td>
+      <td>2.330</td>
+      <td>1683.15</td>
+      <td>3538.0</td>
+      <td>8.0</td>
+      <td>Berzelius</td>
+      <td>1824.0</td>
+      <td>0.705</td>
+      <td>3</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>Potassium</td>
+      <td>K</td>
+      <td>39.098</td>
+      <td>20</td>
+      <td>19</td>
+      <td>19</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>4.3407</td>
+      <td>0.862</td>
+      <td>336.50</td>
+      <td>1032.0</td>
+      <td>10.0</td>
+      <td>Davy</td>
+      <td>1807.0</td>
+      <td>0.757</td>
+      <td>4</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>Calcium</td>
+      <td>Ca</td>
+      <td>40.078</td>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>4</td>
+      <td>2.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>6.1132</td>
+      <td>1.540</td>
+      <td>1112.15</td>
+      <td>1757.0</td>
+      <td>14.0</td>
+      <td>Davy</td>
+      <td>1808.0</td>
+      <td>0.647</td>
+      <td>4</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>Scandium</td>
+      <td>Sc</td>
+      <td>44.956</td>
+      <td>24</td>
+      <td>21</td>
+      <td>21</td>
+      <td>4</td>
+      <td>3.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>6.5615</td>
+      <td>2.990</td>
+      <td>1812.15</td>
+      <td>3109.0</td>
+      <td>15.0</td>
+      <td>Nilson</td>
+      <td>1878.0</td>
+      <td>0.568</td>
+      <td>4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>Titanium</td>
+      <td>Ti</td>
+      <td>47.867</td>
+      <td>26</td>
+      <td>22</td>
+      <td>22</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>6.8281</td>
+      <td>4.540</td>
+      <td>1933.15</td>
+      <td>3560.0</td>
+      <td>9.0</td>
+      <td>Gregor</td>
+      <td>1791.0</td>
+      <td>0.523</td>
+      <td>4</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 28 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elneg</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Electronegativity&quot;</span><span class="p">]</span>
+<span class="n">min_elneg</span> <span class="o">=</span> <span class="n">elneg</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">min_elneg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grunnstoff_min_elneg</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">elneg</span><span class="o">==</span><span class="n">min_elneg</span><span class="p">][</span><span class="s2">&quot;Element&quot;</span><span class="p">]</span>
+<span class="n">grunnstoff_min_elneg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86    Francium
+Name: Element, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lage-nye-verdier-i-datarammen">
+<h2>Lage nye verdier i datarammen<a class="headerlink" href="#lage-nye-verdier-i-datarammen" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smelte_og_koke</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;BoilingPoint&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;MeltingPoint&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;MeltingBoilingPoint&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">smelte_og_koke</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AtomicNumber</th>
+      <th>Element</th>
+      <th>Symbol</th>
+      <th>AtomicMass</th>
+      <th>NumberofNeutrons</th>
+      <th>NumberofProtons</th>
+      <th>NumberofElectrons</th>
+      <th>Period</th>
+      <th>Group</th>
+      <th>Phase</th>
+      <th>...</th>
+      <th>Density</th>
+      <th>MeltingPoint</th>
+      <th>BoilingPoint</th>
+      <th>NumberOfIsotopes</th>
+      <th>Discoverer</th>
+      <th>Year</th>
+      <th>SpecificHeat</th>
+      <th>NumberofShells</th>
+      <th>NumberofValence</th>
+      <th>MeltingBoilingPoint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Hydrogen</td>
+      <td>H</td>
+      <td>1.007</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>gas</td>
+      <td>...</td>
+      <td>0.000090</td>
+      <td>14.175</td>
+      <td>20.28</td>
+      <td>3.0</td>
+      <td>Cavendish</td>
+      <td>1766.0</td>
+      <td>14.304</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>34.455</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Helium</td>
+      <td>He</td>
+      <td>4.002</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>18.0</td>
+      <td>gas</td>
+      <td>...</td>
+      <td>0.000179</td>
+      <td>NaN</td>
+      <td>4.22</td>
+      <td>5.0</td>
+      <td>Janssen</td>
+      <td>1868.0</td>
+      <td>5.193</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Lithium</td>
+      <td>Li</td>
+      <td>6.941</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>0.534000</td>
+      <td>453.850</td>
+      <td>1615.00</td>
+      <td>5.0</td>
+      <td>Arfvedson</td>
+      <td>1817.0</td>
+      <td>3.582</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>2068.850</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Beryllium</td>
+      <td>Be</td>
+      <td>9.012</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>1.850000</td>
+      <td>1560.150</td>
+      <td>2742.00</td>
+      <td>6.0</td>
+      <td>Vaulquelin</td>
+      <td>1798.0</td>
+      <td>1.825</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>4302.150</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Boron</td>
+      <td>B</td>
+      <td>10.811</td>
+      <td>6</td>
+      <td>5</td>
+      <td>5</td>
+      <td>2</td>
+      <td>13.0</td>
+      <td>solid</td>
+      <td>...</td>
+      <td>2.340000</td>
+      <td>2573.150</td>
+      <td>4200.00</td>
+      <td>6.0</td>
+      <td>Gay-Lussac</td>
+      <td>1808.0</td>
+      <td>1.026</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>6773.150</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div></div></div>
+</div>
+<p><strong>Oppgave:</strong></p>
+<ol class="arabic simple">
+<li><p>Les av fila “pengwings.txt” og undersøk dataene</p></li>
+<li><p>Finn pingvinen med kortest nebb.</p></li>
+<li><p>Velg ut og undersøk (med “head”) kun damepingvinene</p></li>
+<li><p>Hva veier den tyngste damepingvinen?</p></li>
+</ol>
+<p>Menti: <a class="reference external" href="http://www.menti.com/wzruzmq8cw">www.menti.com/wzruzmq8cw</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fil</span> <span class="o">=</span> <span class="s2">&quot;https://www.uio.no/studier/emner/matnat/ifi/IN-KJM1900/h21/datafiler/penguings.txt&quot;</span>
+<span class="n">pingviner</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fil</span><span class="p">)</span>
+<span class="n">pingviner</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>MALE</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>FEMALE</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nebblengde</span> <span class="o">=</span> <span class="n">pingviner</span><span class="p">[</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">]</span>
+<span class="n">kortest_nebb</span> <span class="o">=</span> <span class="n">nebblengde</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">kortnebb</span> <span class="o">=</span> <span class="n">pingviner</span><span class="p">[</span><span class="n">nebblengde</span> <span class="o">==</span> <span class="n">kortest_nebb</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kortnebb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>142</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>32.1</td>
+      <td>15.5</td>
+      <td>188.0</td>
+      <td>3050.0</td>
+      <td>FEMALE</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">damepingviner</span> <span class="o">=</span> <span class="n">pingviner</span><span class="p">[</span><span class="n">pingviner</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;FEMALE&quot;</span><span class="p">]</span>
+<span class="n">damepingviner</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>38.9</td>
+      <td>17.8</td>
+      <td>181.0</td>
+      <td>3625.0</td>
+      <td>FEMALE</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>41.1</td>
+      <td>17.6</td>
+      <td>182.0</td>
+      <td>3200.0</td>
+      <td>FEMALE</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">damepingviner</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5200.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualisere-sammenhenger">
+<h1>Visualisere sammenhenger<a class="headerlink" href="#visualisere-sammenhenger" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">pingviner</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;body_mass_g&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Luffelengde (mm)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Kroppsmasse (g)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(47.66799999999999, 0.5, &#39;Kroppsmasse (g)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/05d58b7bf260a238a59b1945cb53d53d42f3d71b955abbea3c1132fa401fb765.png" src="../../../_images/05d58b7bf260a238a59b1945cb53d53d42f3d71b955abbea3c1132fa401fb765.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">pingviner</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fbd25bf5dc0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/2d3857b13468c4604a59c3a549c511fbe0d569660f0ea7431d4ed5e8e6bb7d26.png" src="../../../_images/2d3857b13468c4604a59c3a549c511fbe0d569660f0ea7431d4ed5e8e6bb7d26.png" />
+</div>
+</div>
+</section>
+<section id="lese-ulike-filer">
+<h1>Lese ulike filer<a class="headerlink" href="#lese-ulike-filer" title="Permalink to this heading">#</a></h1>
+<p><strong>Oppgave:</strong> Prøv å lese fila “dec”. Bruk head-funksjonen til å undersøke om du har lest fila korrekt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://www.uio.no/studier/emner/matnat/ifi/IN-KJM1900/h20/datafiler/dec.txt&quot;</span><span class="p">,</span>
+                <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Date&#39;, &#39;hr&#39;, &#39;VCD&#39;, &#39;Error&#39;, &#39;Unnamed: 4&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>hr</th>
+      <th>VCD</th>
+      <th>Error</th>
+      <th>Unnamed: 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20021201</td>
+      <td>0</td>
+      <td>348.0</td>
+      <td>22.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20021201</td>
+      <td>6</td>
+      <td>351.6</td>
+      <td>22.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20021201</td>
+      <td>12</td>
+      <td>353.8</td>
+      <td>23.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20021201</td>
+      <td>18</td>
+      <td>350.8</td>
+      <td>23.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20021202</td>
+      <td>0</td>
+      <td>348.2</td>
+      <td>23.4</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Unnamed: 4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     NaN
+1     NaN
+2     NaN
+3     NaN
+4     NaN
+       ..
+367   NaN
+368   NaN
+369   NaN
+370   NaN
+371   NaN
+Name: Unnamed: 4, Length: 372, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>hr</th>
+      <th>VCD</th>
+      <th>Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20021201</td>
+      <td>0</td>
+      <td>348.0</td>
+      <td>22.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20021201</td>
+      <td>6</td>
+      <td>351.6</td>
+      <td>22.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20021201</td>
+      <td>12</td>
+      <td>353.8</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20021201</td>
+      <td>18</td>
+      <td>350.8</td>
+      <td>23.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20021202</td>
+      <td>0</td>
+      <td>348.2</td>
+      <td>23.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/notebooks/utfylte"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Pandas!
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lese-fil-og-undersoke-innholdet">
+     Lese fil og undersøke innholdet
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finne-og-systematisere-sammenhenger">
+     Finne og systematisere sammenhenger
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lage-nye-verdier-i-datarammen">
+     Lage nye verdier i datarammen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisere-sammenhenger">
+   Visualisere sammenhenger
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lese-ulike-filer">
+   Lese ulike filer
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andreas Haraldsrud (andreadh@uio.no), Center for Computing in Science Education, Universitetet i Oslo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  </body>
+</html>

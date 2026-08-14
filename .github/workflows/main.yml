@@ -50,6 +50,7 @@ jobs:
           git config --global user.name "Github Actions"
           git config --global user.email "github-actions-bot@users.noreply.github.com"
           jupyter-book build .
+          bash scripts/prepare_basthon.sh _build/html/basthon
 
       # 5) Deploy
       - name: Deploy

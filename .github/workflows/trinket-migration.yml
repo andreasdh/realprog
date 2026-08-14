@@ -1,0 +1,48 @@
+name: Migrate Trinkets to Basthon
+
+on:
+  push:
+    branches:
+      - agent/migrate-trinkets-to-basthon
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/migrate-trinkets-to-basthon
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Migrate live pages
+        run: python scripts/migrate_trinkets_to_basthon.py
+
+      - name: Validate migration
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('scripts/trinket_migration_report.json').read_text(encoding='utf-8'))
+          assert report['trinket_references_replaced'] > 0
+          root = Path('docs/_static/basthon_examples')
+          for item in report['trinkets'].values():
+              assert (root / f"trinket_{item['id']}" / item['main']).is_file()
+          print(f"Migrated {report['trinket_references_replaced']} Trinket references")
+          print(f"Removed {report['parsons_blocks_removed']} Parsons blocks/references")
+          PY
+
+      - name: Commit migrated content and remove one-off tools
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/trinket-migration.yml scripts/migrate_trinkets_to_basthon.py
+          git add docs scripts/trinket_migration_report.json
+          git commit -m "Migrate Trinkets to Basthon and remove Parsons [skip ci]"
+          git push origin HEAD:agent/migrate-trinkets-to-basthon

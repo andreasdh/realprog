@@ -17,15 +17,23 @@ USER_AGENT = "Mozilla/5.0 (educational-content-migration)"
 
 IFRAME_RE = re.compile(
     r'<iframe\b[^>]*?src=["\']https?://(?:www\.)?trinket\.io/embed/'
-    r'(?P<kind>python3|python|pygame)/(?P<id>[A-Za-z0-9]+)[^"\']*["\'][^>]*>'
+    r'(?P<kind>python3|python|pygame|blocks)/(?P<id>[A-Za-z0-9]+)[^"\']*["\'][^>]*>'
     r'\s*</iframe>', re.IGNORECASE,
 )
 LINK_RE = re.compile(
-    r'https?://(?:www\.)?trinket\.io/(?:embed/)?(?P<kind>python3|python|pygame)/'
+    r'https?://(?:www\.)?trinket\.io/(?:embed/)?(?P<kind>python3|python|pygame|blocks)/'
     r'(?P<id>[A-Za-z0-9]+)(?:\?[^\s)\]"\']*)?', re.IGNORECASE,
 )
 HEIGHT_RE = re.compile(r'\bheight=["\']?(\d+)', re.IGNORECASE)
 PROJECT_RE = re.compile(r'trinketObject\s*=\s*(\{.*?\});\s*(?:\r?\n\s*)*draftObject', re.DOTALL)
+
+# The live site contains exactly two Blockly Trinkets. Basthon is a Python editor,
+# so we preserve their meaning by translating the stored block structure to the
+# equivalent Python programs.
+BLOCK_PYTHON = {
+    "045908554a": """partall = 0\n\nfor i in range(10):\n    partall = partall + 2\n    print(partall)\n""",
+    "0a3095c9fa": """bakterier = 100\nantall_timer = 30\nvekst = 0.42\n\nfor i in range(antall_timer):\n    bakterier = bakterier + bakterier*vekst\n\nprint(int(bakterier))\n""",
+}
 
 report = {"pages": [], "trinkets": {}, "warnings": []}
 cache: dict[tuple[str, str], dict] = {}
@@ -63,8 +71,7 @@ def get_project(kind: str, trinket_id: str) -> tuple[dict, str]:
     match = PROJECT_RE.search(page)
     if not match:
         raise RuntimeError(f"Could not find trinketObject in {url}")
-    project = json.loads(match.group(1))
-    return project, url
+    return json.loads(match.group(1)), url
 
 
 def safe_name(name: str) -> str | None:
@@ -75,23 +82,26 @@ def safe_name(name: str) -> str | None:
     return name
 
 
-def extract_files(project: dict) -> list[dict]:
+def extract_files(project: dict, kind: str, trinket_id: str) -> list[dict]:
+    if kind == "blocks":
+        if trinket_id not in BLOCK_PYTHON:
+            raise RuntimeError(f"No Python translation defined for Blockly Trinket {trinket_id}")
+        return [{"name": "main.py", "content": BLOCK_PYTHON[trinket_id]}]
+
     encoded = project.get("code") or "[]"
     try:
         files = json.loads(html.unescape(encoded)) if isinstance(encoded, str) else encoded
     except json.JSONDecodeError as exc:
         raise RuntimeError(f"Could not decode Trinket code payload: {exc}") from exc
+
     result = []
     for item in files or []:
         if not isinstance(item, dict):
             continue
         name = safe_name(str(item.get("name") or ""))
-        if not name:
-            continue
-        result.append({"name": name, "content": str(item.get("content") or "")})
-    if not result:
-        result = [{"name": "main.py", "content": ""}]
-    return result
+        if name:
+            result.append({"name": name, "content": str(item.get("content") or "")})
+    return result or [{"name": "main.py", "content": ""}]
 
 
 def snapshot(kind: str, trinket_id: str) -> dict:
@@ -100,7 +110,7 @@ def snapshot(kind: str, trinket_id: str) -> dict:
         return cache[key]
 
     project, source_url = get_project(kind, trinket_id)
-    files = extract_files(project)
+    files = extract_files(project, kind, trinket_id)
     directory = EXAMPLES / f"trinket_{trinket_id}"
     directory.mkdir(parents=True, exist_ok=True)
 
@@ -112,11 +122,11 @@ def snapshot(kind: str, trinket_id: str) -> dict:
         names.append(item["name"])
 
     main_name = "main.py" if "main.py" in names else next((x for x in names if x.endswith(".py")), names[0])
-    main_source = (directory / main_name).read_text(encoding="utf-8")
+    source = (directory / main_name).read_text(encoding="utf-8")
     syntax_error = None
     if main_name.endswith(".py"):
         try:
-            compile(main_source, str(directory / main_name), "exec")
+            compile(source, str(directory / main_name), "exec")
         except SyntaxError as exc:
             syntax_error = f"{exc.msg} (line {exc.lineno})"
             report["warnings"].append(f"Trinket {trinket_id}: syntax warning: {syntax_error}")
@@ -180,8 +190,29 @@ def replace_trinkets(text: str, source_path: Path) -> tuple[str, int]:
         count += 1
         return basthon_url(source_path, item)
 
-    text = LINK_RE.sub(link, text)
-    return text, count
+    return LINK_RE.sub(link, text), count
+
+
+def cleanup_legacy_prose(text: str) -> str:
+    text = text.replace(
+        'Trinket har en innebygd blokk-editor der du kan klikke på "view code" for å få den tilsvarende Python-koden. Dette kan lette overgangen fra blokk til tekst.',
+        'Et tilsvarende eksempel kan vises som Python-kode i editoren nedenfor. Dette kan brukes til å diskutere overgangen fra blokkstruktur til tekstkode.'
+    )
+    text = text.replace(
+        'Du kan lage halvferdige programmer i f.eks. [Trinket](https://trinket.io/). Disse kan deles med elevene dersom du sparer på lenka. Programmene du lager på Trinket, blir lagret, men du kan ikke endre dem dersom du ikke har et abonnement. Et abonnement er derimot ikke dyrt, og anbefales sterkt.',
+        'Du kan lage halvferdige programmer direkte i Basthon-editoren og la elevene fylle inn det som mangler. Eksemplene nedenfor kan kjøres og endres direkte i nettleseren.'
+    )
+    text = text.replace(
+        'Det finnes også et programmeringsspråk som heter _Blockly_, som en kan bruke i kombinasjon med for eksempel Pasco-sensorer og på egen hånd, for eksempel integrert i Trinket. En fordel med dette språket, er at det kan oversettes til Python-kode ved å trykke på en knapp! Her er et eksempel:',
+        'Det finnes også et programmeringsspråk som heter _Blockly_, som en kan bruke i kombinasjon med for eksempel Pasco-sensorer og på egen hånd. En fordel med dette språket er at blokkstrukturen kan oversettes til Python-kode. Her viser vi den tilsvarende Python-varianten av et eksempel:'
+    )
+    text = text.replace(
+        'Trykk på "View Code" og sammenlikn blokkene med den tilsvarende Python-koden. Eksperimenter litt med blokker og tekst i editoren.',
+        'Studer Python-koden og diskuter hvordan variabler, løkke og beregninger ville vært representert som blokker.'
+    )
+    text = text.replace('[Trinket](https://trinket.io/)', 'Basthon')
+    text = text.replace('https://trinket.io/', 'https://console.basthon.fr/')
+    return text
 
 
 def directive_spans(lines: list[str]) -> list[tuple[int, int]]:
@@ -230,18 +261,27 @@ def update_notebook(path: Path) -> tuple[int, int]:
     for cell in notebook.get("cells", []):
         source = cell.get("source", [])
         text = "".join(source) if isinstance(source, list) else str(source)
+        lower = text.lower()
+
+        # Remove dedicated Parsons sections/cells completely.
+        if "parsons.problemsolving.io" in lower or re.search(r"(?m)^#{1,6}\s+.*parsons", lower):
+            parsons += 1
+            continue
+
         if cell.get("cell_type") == "markdown":
             text, n = replace_trinkets(text, path)
             trinkets += n
+            text = cleanup_legacy_prose(text)
             text, n = remove_parsons(text)
             parsons += n
             cell["source"] = text.splitlines(keepends=True)
             if text.strip():
                 cells.append(cell)
-        elif "parsons" not in text.lower():
+        elif "parsons" not in lower:
             cells.append(cell)
         else:
             parsons += 1
+
     notebook["cells"] = cells
     path.write_text(json.dumps(notebook, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return trinkets, parsons
@@ -250,6 +290,7 @@ def update_notebook(path: Path) -> tuple[int, int]:
 def update_text(path: Path) -> tuple[int, int]:
     text = path.read_text(encoding="utf-8")
     text, trinkets = replace_trinkets(text, path)
+    text = cleanup_legacy_prose(text)
     text, parsons = remove_parsons(text)
     path.write_text(text, encoding="utf-8")
     return trinkets, parsons
@@ -259,10 +300,12 @@ def validate(files: list[Path]) -> None:
     errors = []
     for path in files:
         text = path.read_text(encoding="utf-8").lower()
-        if "trinket.io" in text:
-            errors.append(f"Trinket URL remains in {path.relative_to(ROOT)}")
+        if "trinket.io/embed/" in text:
+            errors.append(f"Trinket embed remains in {path.relative_to(ROOT)}")
         if "parsons.problemsolving.io" in text:
             errors.append(f"Parsons URL remains in {path.relative_to(ROOT)}")
+        if re.search(r"(?m)^#{1,6}\s+.*parsons", text):
+            errors.append(f"Parsons section remains in {path.relative_to(ROOT)}")
         if path.suffix == ".ipynb":
             try:
                 json.loads(path.read_text(encoding="utf-8"))
@@ -286,6 +329,7 @@ def main() -> None:
             })
         total_trinkets += trinkets
         total_parsons += parsons
+
     report["trinket_references_replaced"] = total_trinkets
     report["unique_trinkets_snapshotted"] = len(cache)
     report["parsons_blocks_removed"] = total_parsons
